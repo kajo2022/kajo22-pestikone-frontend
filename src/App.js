@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Pestikone</h1>
+      <h1>Pestikone jee</h1>
     </div>
   );
 }
