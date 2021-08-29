@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import Frame from './Frame.js'; 
 
 function App() {
   return (
     <div className="App">
-      <h1>Pestikone</h1>
+      <Frame/>
     </div>
   );
 }

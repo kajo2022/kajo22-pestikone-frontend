@@ -10,6 +10,7 @@
 
 # production
 /build
+.code-workspace
 
 # misc
 .DS_Store
