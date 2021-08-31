@@ -17,15 +17,16 @@ export default function Frame() {
         { "id": 10, "desc": "Reilusti kahvia", "type": 2 }]
 
     //const {palautus, setPalautus} = useState({jasennro: "", tags: []}); 
+    function ClickThis(props) {
+      console.log(props.id)
+
+    }
     
     function Talker(props) {
         const output = props.item.desc;
 
         return (
-            <div className='Talker'>
-                {output}
-                
-            </div>
+            <button onClick={ClickThis}>{output}</button>
     
         )}
 
@@ -33,9 +34,9 @@ export default function Frame() {
 
   return (
     <div>
-      <h1>Tervetuloa Pestikoneeseen!!!</h1>
+      <h1 style={{alignSelf: 'auto'}}>Tervetuloa Pestikoneeseen!!!</h1>
       <div className="Frame">
-          {lista.map((item) => <div id={item.id.toString()}> <Talker item={item} /> </div>)}
+         <text>this is text</text>
         
       </div>
     </div>
