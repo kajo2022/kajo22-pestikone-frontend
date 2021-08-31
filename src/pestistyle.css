@@ -6,7 +6,8 @@
 div.message {
     font-family:'Courier New', Courier, monospace;
     background-color: white;
-    color: black;
+    color: black !important;
+    width: 50%;
 }
 
 img.avatar {
