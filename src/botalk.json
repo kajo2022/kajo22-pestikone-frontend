@@ -1,0 +1,26 @@
+[{
+    "id": 1,
+    "desc": "Hei, Tervetuloa Kajon pestikoneeseen. Täällä voit valita avainsanoja, joiden perusteella pyrimme jakamaan osallistujat pesteihin",
+    "type": "intro"
+},
+{
+    "id": 2,
+    "desc": "Ensiksi tarvitsemme jäsennumerosi, jonka perusteella valinnat kohdennetaan oikeaan henkilöön.",
+    "type": "intro"
+},
+{
+    "id": 3,
+    "desc": "Kiitos. Nyt aloitamme. Missä haluaisit tehdä pestisi Kajolla?",
+    "type": "where"
+},
+{
+    "id": 4,
+    "desc": "Entä mitä haluaisit tehdä. Valitse kaksi.",
+    "type": "what"
+},
+{
+    "id": 5,
+    "desc": "Entäpä milloin? Valitse yksi.",
+    "type": "when"
+}
+]
