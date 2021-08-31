@@ -3,6 +3,7 @@ import './Frame.css';
 
 
 export default function Talker(props) {
+    
     let xd = props.desc; 
 
 
