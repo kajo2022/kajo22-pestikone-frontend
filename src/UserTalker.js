@@ -4,11 +4,10 @@ import './Frame.css';
 
 export default function UserTalk(props) {
 
-
     function ClickThis(key) {
          
         console.log(key)
-        props.updater.newTag(key);
+        //props.updater.newTag(key);
   
       }
       
