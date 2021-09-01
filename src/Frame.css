@@ -1,12 +1,14 @@
 .Frame {
     height: 70vh;
     min-width: 70vh;
+    max-width: 100vh;
     border-radius: 25px;
     margin-right: auto;
     margin-left: auto;
     background-color: blueviolet;
     color: aliceblue;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .UserTalker {
@@ -17,7 +19,7 @@
     padding: 10px;
     width: max-content;
     display: flex;
-    max-width: 70%;
+    max-width: 60%;
     height: max-content;
     
 }

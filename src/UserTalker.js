@@ -4,7 +4,9 @@ import './Frame.css';
 
 export default function UserTalk(props) {
 
-    
+    const lista = props.lista; 
+
+
 
     function ClickThis(key) {
          
@@ -12,15 +14,18 @@ export default function UserTalk(props) {
         //props.updater.newTag(key);
   
       }
-      
-
-    const output = props.item.desc;
-    const id = props.item.id; 
     
 
     return (
-        <div className='UserTalker Talker' onClick={() => ClickThis(id)}> {output} </div>
-
+        lista.map((item) => (
+        <div className='Direct' >
+        <div className='UserTalker Talker' 
+        key={item.key} 
+        onClick={() => ClickThis(item.key)}> 
+        {item.desc} 
+        </div>
+        </div>
+        ))
     )
     
 }

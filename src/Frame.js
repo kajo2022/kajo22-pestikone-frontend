@@ -1,7 +1,8 @@
 import "./Frame.css";
 import React, { useState } from "react";
 import UserTalker from "./UserTalker.js";
-import BotImage from "./kajo_bot.png";
+import BotTalk from "./BotTalk";
+
 
 export default function Frame() {
   const lista1 = require("./tags1.json");
@@ -15,17 +16,7 @@ export default function Frame() {
     setPalautus({ ...palautus, [e.target.name]: e.target.value });
   };
 
-  const BotTalk = (props) => {
-    const listaus = props.lista;
-    const id = props.id;
-    const kyssari = listaus[id];
-    return (
-      <div className="Row">
-        <img className="Avatar-kajo" src={BotImage} alt="Kajo-Bot" />
-        <div className="UserTalker"> {kyssari.desc} </div>
-      </div>
-    );
-  };
+  
 
   const confirmer = (e) => {
     e.preventDefault();
@@ -59,22 +50,13 @@ export default function Frame() {
     <div>
       <h1 style={{ alignSelf: "auto" }}>Tervetuloa Pestikoneeseen!!!</h1>
       <div className="Frame">
+      <BotTalk lista={kysymykset} id={0} />
         <BotTalk lista={kysymykset} id={1} />
         <NumeroInput />
         <BotTalk lista={kysymykset} id={2} />
-        {lista1.map((item) => (
-          <div className="Direct" key={item.id}>
-            
-            <UserTalker item={item} />
-          </div>
-        ))}
+        <UserTalker lista={lista1}/>
         <BotTalk lista={kysymykset} id={3} />
-        {lista2.map((item) => (
-          <div className="Direct" key={item.id}>
-            
-            <UserTalker item={item} />
-          </div>
-        ))}
+        <UserTalker lista={lista2}/>
       </div>
     </div>
   );
