@@ -23,7 +23,6 @@
     color: aliceblue;
     padding: 10px;
     display: flex;
-    flex-wrap: wrap;
 }
 
 .UserTalker {
@@ -51,6 +50,7 @@
 
 .Row {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .Avatar-kajo {
@@ -65,6 +65,7 @@
     padding: 10px;
     border-radius: 15px;
     font-weight: bold;
+    max-height: 45px;
 }
 
 .Btn:hover {
