@@ -2,25 +2,35 @@ import "./Frame.css";
 import React, { useState } from "react";
 import UserTalker from "./UserTalker.js";
 import BotTalk from "./BotTalk";
+import Valinta from "./Valinta";
 
 
 export default function Frame() {
   const lista1 = require("./tags1.json");
   const lista2 = require("./tags2.json");
-  const kysymykset = require("./botalk.json");
 
-  const [palautus, setPalautus] = useState({ jasennro: "", tags: [] });
+  const [jasen, setJasen] = useState('');
+  const [valinta, setValinta] = useState([]);
 
   const handleChange = (e) => {
     e.preventDefault()
-    setPalautus({ ...palautus, [e.target.name]: e.target.value });
+    setJasen(e.target.value);
   };
+
+  const lisaa = (item) => {
+    console.log(item);
+    setValinta([...valinta, item]);
+  }
+
+  const clear = () => {
+    setValinta([]);
+  }
 
   
 
   const confirmer = (e) => {
     e.preventDefault();
-    console.log(palautus.jasennro);
+    console.log(jasen);
   };
 
   const NumeroInput = () => {
@@ -35,9 +45,9 @@ export default function Frame() {
               style={styles.input}
               type="text"
               name="jasennro"
-              value={palautus.jasennro}
+              value={jasen}
               onChange={(e) => handleChange(e)}
-              autoFocus
+              //autoFocus miten pelata ilman autofocusta?
             />
             <button className='Btn' type='submit'>OK</button>
           </div>
@@ -50,13 +60,17 @@ export default function Frame() {
     <div>
       <h1 style={{ alignSelf: "auto" }}>Tervetuloa Pestikoneeseen!!!</h1>
       <div className="Frame">
-      <BotTalk lista={kysymykset} id={0} />
-        <BotTalk lista={kysymykset} id={1} />
+      <BotTalk id={0} />
+        <BotTalk id={1} />
         <NumeroInput />
-        <BotTalk lista={kysymykset} id={2} />
-        <UserTalker lista={lista1}/>
-        <BotTalk lista={kysymykset} id={3} />
-        <UserTalker lista={lista2}/>
+        <BotTalk id={2} />
+        <UserTalker lista={lista1} func={lisaa}/>
+        <BotTalk id={3} />
+        <UserTalker lista={lista2} func={lisaa}/>
+      </div>
+      <div className='Frame2'>
+        <button className='Btn' onClick={clear}>Tyhjennä</button>
+        {valinta.length>0 ? <Valinta lista={valinta} /> : null}
       </div>
     </div>
   );

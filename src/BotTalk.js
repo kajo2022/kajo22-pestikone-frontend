@@ -4,7 +4,7 @@ import BotImage from "./kajo_bot.png";
 
 
 const BotTalk = (props) => {
-    const listaus = props.lista;
+    const listaus = require("./botalk.json");
     const id = props.id;
     const kyssari = listaus[id];
     return (

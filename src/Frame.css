@@ -1,14 +1,29 @@
 .Frame {
     height: 70vh;
     min-width: 70vh;
-    max-width: 100vh;
+    max-width: 90vh;
     border-radius: 25px;
     margin-right: auto;
     margin-left: auto;
     background-color: blueviolet;
     color: aliceblue;
     overflow-y: auto;
-    overflow-x: hidden;
+}
+
+.Frame2 {
+    max-height: 30vh;
+    min-height: 10vh;
+    min-width: 70vh;
+    max-width: 90vh;
+    border-radius: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    background-color: blueviolet;
+    color: aliceblue;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .UserTalker {
@@ -19,8 +34,9 @@
     padding: 10px;
     width: max-content;
     display: flex;
-    max-width: 60%;
+    max-width: 70%;
     height: max-content;
+    
     
 }
 .Talker:hover {
@@ -34,7 +50,7 @@
 }
 
 .Row {
-    display: inline-flex;
+    display: flex;
 }
 
 .Avatar-kajo {
@@ -49,4 +65,8 @@
     padding: 10px;
     border-radius: 15px;
     font-weight: bold;
+}
+
+.Btn:hover {
+    cursor: pointer;
 }
