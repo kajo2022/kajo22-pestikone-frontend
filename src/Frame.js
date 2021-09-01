@@ -1,5 +1,5 @@
 import "./Frame.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UserTalker from "./UserTalker.js";
 import BotTalk from "./BotTalk";
 import Valinta from "./Valinta";
@@ -8,6 +8,8 @@ import Valinta from "./Valinta";
 export default function Frame() {
   const lista1 = require("./tags1.json");
   const lista2 = require("./tags2.json");
+  const initState = {jnro: false, paikka: false, mita:false, milloin:false, osaan: false, patev: false};
+  const [ehto, setEhto] = useState(initState);
 
   const [jasen, setJasen] = useState('');
   const [valinta, setValinta] = useState([]);
@@ -24,13 +26,25 @@ export default function Frame() {
 
   const clear = () => {
     setValinta([]);
+    setEhto(initState)
   }
+
+  useEffect(() => {
+    for (var i = 0; i < valinta.length; i++) {
+      if (valinta[i].type===1) {
+        setEhto({...ehto, paikka: true})
+      }
+    }
+//seuraavat ehdot loppuun ja miten laskenta.
+
+  }, [valinta])
 
   
 
   const confirmer = (e) => {
     e.preventDefault();
     console.log(jasen);
+    setEhto({...ehto, jnro: true})
   };
 
   const NumeroInput = () => {
@@ -56,6 +70,9 @@ export default function Frame() {
     );
   };
 
+  const Frag1 = () => {return( <div> <BotTalk id={2}/> <UserTalker lista={lista1} func={lisaa}/> </div>)}
+  const Frag2 = () => {return( <div> <BotTalk id={3} /> <UserTalker lista={lista2} func={lisaa}/> </div>)}
+
   return (
     <div>
       <h1 style={{ alignSelf: "auto" }}>Tervetuloa Pestikoneeseen!!!</h1>
@@ -63,10 +80,12 @@ export default function Frame() {
       <BotTalk id={0} />
         <BotTalk id={1} />
         <NumeroInput />
-        <BotTalk id={2} />
-        <UserTalker lista={lista1} func={lisaa}/>
-        <BotTalk id={3} />
-        <UserTalker lista={lista2} func={lisaa}/>
+        {ehto.jnro ? <Frag1/> : null}
+        {ehto.paikka ? <Frag2/> : null}
+
+        
+        
+        
       </div>
       <div className='Frame2'>
         <button className='Btn' onClick={clear}>Tyhjennä</button>
