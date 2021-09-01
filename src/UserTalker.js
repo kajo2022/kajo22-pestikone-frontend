@@ -4,6 +4,8 @@ import './Frame.css';
 
 export default function UserTalk(props) {
 
+    
+
     function ClickThis(key) {
          
         console.log(key)
@@ -17,7 +19,7 @@ export default function UserTalk(props) {
     
 
     return (
-        <div className='UserTalker' onClick={() => ClickThis(id)}> {output} </div>
+        <div className='UserTalker Talker' onClick={() => ClickThis(id)}> {output} </div>
 
     )
     
