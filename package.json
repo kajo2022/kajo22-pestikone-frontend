@@ -7,7 +7,11 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "react": "^17.0.2",
+<<<<<<< HEAD
     "react-chatbox-component": "0.0.5",
+=======
+    "react-animations": "^1.0.0",
+>>>>>>> e132bfd0f1e9cefcc029244808d666fdef35adc8
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
