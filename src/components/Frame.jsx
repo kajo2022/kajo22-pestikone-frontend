@@ -46,7 +46,7 @@ export default function Frame() {
       >
         <form onSubmit={confirmer}>
           <div className="Row">
-            <label for="jasennro" style={styles.label}>Jäsennumero</label>
+            <label for="jasennro" style={styles.label}>{t("Jäsennumero")}</label>
             <input
               style={styles.input}
               type="text"
@@ -55,7 +55,7 @@ export default function Frame() {
               onChange={(e) => handleChange(e)}
               //autoFocus miten pelata ilman autofocusta?
             />
-            <button className='Btn' type='submit'>OK</button>
+            <button className='Btn' type='submit'>{t('OK')}</button>
           </div>
         </form>
       </div>
@@ -75,8 +75,13 @@ export default function Frame() {
         <UserTalker lista={lista2} func={lisaa}/>
       </div>
       <div className='Frame2'>
-        <button className='Btn' onClick={clear}>Tyhjennä</button>
+        <button className='Btn' onClick={clear}>{t('Tyhjennä')}</button>
         {valinta.length>0 ? <Valinta lista={valinta} /> : null}
+      </div>
+      <div className='Frame3'>
+        <button onClick={() => i18n.changeLanguage('fi')}>Suomi</button>
+        <button onClick={() => i18n.changeLanguage('en')}>English</button>
+        <button onClick={() => i18n.changeLanguage('se')} >Svenska</button>
       </div>
     </div>
   );
