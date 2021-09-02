@@ -1,6 +1,4 @@
-import React from 'react'; 
-import './Frame.css'; 
-
+import React from 'react';
 
 export default function UserTalk(props) {
 

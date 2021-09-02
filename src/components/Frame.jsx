@@ -1,13 +1,13 @@
-import "./Frame.css";
+import "./../assets/styles/Frame.css";
 import React, { useState } from "react";
-import UserTalker from "./UserTalker.js";
+import UserTalker from "./UserTalker";
 import BotTalk from "./BotTalk";
 import Valinta from "./Valinta";
 
 
 export default function Frame() {
-  const lista1 = require("./tags1.json");
-  const lista2 = require("./tags2.json");
+  const lista1 = require("../tags1.json");
+  const lista2 = require("../tags2.json");
 
   const [jasen, setJasen] = useState('');
   const [valinta, setValinta] = useState([]);
