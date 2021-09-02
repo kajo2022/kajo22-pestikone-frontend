@@ -1,5 +1,5 @@
 import "./../assets/styles/Frame.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UserTalker from "./UserTalker";
 import BotTalk from "./BotTalk";
 import Valinta from "./Valinta";
@@ -14,6 +14,11 @@ export default function Frame() {
 
   const lista1 = require("../tags1.json");
   const lista2 = require("../tags2.json");
+  const lista3 = require("../tags3.json");
+  const lista4 = require("../tags4.json");
+  const lista5 = require("../tags5.json");
+  const initState = {jnro: false, paikka: false, mita:false, milloin:false, osaan: false};
+  const [ehto, setEhto] = useState(initState);
 
   const [jasen, setJasen] = useState('');
   const [valinta, setValinta] = useState([]);
@@ -30,13 +35,34 @@ export default function Frame() {
 
   const clear = () => {
     setValinta([]);
+    setEhto(initState)
   }
+
+
+
+  useEffect(() => {
+    for (var i = 0; i < valinta.length; i++) {
+      if (valinta[i].type===1) {
+        setEhto({...ehto, paikka:true})
+      }
+      if (valinta[i].type===2) {
+        setEhto({...ehto, mita: true})
+      }
+      if (valinta[i].type===3) {
+        setEhto({...ehto, milloin:true})
+      }
+      if (valinta[i].type===4) {
+        setEhto({...ehto, osaan: true})
+      }
+    }
+  }, [valinta])
 
   
 
   const confirmer = (e) => {
     e.preventDefault();
     console.log(jasen);
+    setEhto({...ehto, jnro: true})
   };
 
   const NumeroInput = () => {
@@ -53,7 +79,7 @@ export default function Frame() {
               name="jasennro"
               value={jasen}
               onChange={(e) => handleChange(e)}
-              //autoFocus miten pelata ilman autofocusta?
+              //autoFocus miten pelata ilman autofocusta? ettei homma kaadu
             />
             <button className='Btn' type='submit'>{t('OK')}</button>
           </div>
@@ -62,6 +88,12 @@ export default function Frame() {
     );
   };
 
+  const Frag1 = () => {return( <div> <BotTalk id={2}/> <UserTalker lista={lista1} func={lisaa}/> </div>)}
+  const Frag2 = () => {return( <div> <BotTalk id={3} /> <UserTalker lista={lista2} func={lisaa}/> </div>)}
+  const Frag3 = () => {return( <div> <BotTalk id={4} /> <UserTalker lista={lista3} func={lisaa}/> </div>)}
+  const Frag4 = () => {return( <div> <BotTalk id={5} /> <UserTalker lista={lista4} func={lisaa}/> </div>)}
+  const Frag5 = () => {return( <div> <BotTalk id={6} /> <UserTalker lista={lista5} func={lisaa}/> </div>)}
+
   return (
     <div>
       <h1 style={{ alignSelf: "auto" }}>{ t('Tervetuloa Pestikoneeseen!!!') }</h1>
@@ -69,10 +101,15 @@ export default function Frame() {
       <BotTalk id={0} />
         <BotTalk id={1} />
         <NumeroInput />
-        <BotTalk id={2} />
-        <UserTalker lista={lista1} func={lisaa}/>
-        <BotTalk id={3} />
-        <UserTalker lista={lista2} func={lisaa}/>
+        {ehto.jnro ? <Frag1/> : null}
+        {ehto.paikka ? <Frag2/> : null}
+        {ehto.mita ? <Frag3/> : null}
+        {ehto.milloin ? <Frag4/> : null}
+        {ehto.osaan ? <Frag5/> : null}
+
+        
+        
+        
       </div>
       <div className='Frame2'>
         <button className='Btn' onClick={clear}>{t('Tyhjennä')}</button>
