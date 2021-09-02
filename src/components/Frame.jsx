@@ -1,6 +1,6 @@
-import "./Frame.css";
-import React, { useEffect, useState } from "react";
-import UserTalker from "./UserTalker.js";
+import "./../assets/styles/Frame.css";
+import React, { useState } from "react";
+import UserTalker from "./UserTalker";
 import BotTalk from "./BotTalk";
 import Valinta from "./Valinta";
 
