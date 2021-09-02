@@ -4,121 +4,162 @@ import UserTalker from "./UserTalker";
 import BotTalk from "./BotTalk";
 import Valinta from "./Valinta";
 
-import '../services/i18n'
+import "../services/i18n";
 import { useTranslation } from "react-i18next";
 
-
 export default function Frame() {
-
-  const {t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const lista1 = require("../tags1.json");
   const lista2 = require("../tags2.json");
   const lista3 = require("../tags3.json");
   const lista4 = require("../tags4.json");
   const lista5 = require("../tags5.json");
-  const initState = {jnro: false, paikka: false, mita:false, milloin:false, osaan: false};
+  const initState = {
+    jnro: false,
+    paikka: false,
+    mita: false,
+    milloin: false,
+    osaan: false,
+  };
   const [ehto, setEhto] = useState(initState);
 
-  const [jasen, setJasen] = useState('');
+  const [jasen, setJasen] = useState("");
   const [valinta, setValinta] = useState([]);
 
   const handleChange = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setJasen(e.target.value);
   };
 
   const lisaa = (item) => {
     console.log(item);
     setValinta([...valinta, item]);
-  }
+  };
 
   const clear = () => {
     setValinta([]);
-    setEhto(initState)
-  }
-
-
+    setEhto(initState);
+  };
 
   useEffect(() => {
     for (var i = 0; i < valinta.length; i++) {
-      if (valinta[i].type===1) {
-        setEhto({...ehto, paikka:true})
+      if (valinta[i].type === 1) {
+        setEhto({ ...ehto, paikka: true });
       }
-      if (valinta[i].type===2) {
-        setEhto({...ehto, mita: true})
+      if (valinta[i].type === 2) {
+        setEhto({ ...ehto, mita: true });
       }
-      if (valinta[i].type===3) {
-        setEhto({...ehto, milloin:true})
+      if (valinta[i].type === 3) {
+        setEhto({ ...ehto, milloin: true });
       }
-      if (valinta[i].type===4) {
-        setEhto({...ehto, osaan: true})
+      if (valinta[i].type === 4) {
+        setEhto({ ...ehto, osaan: true });
       }
     }
-  }, [valinta])
-
-  
+  }, [valinta]);
 
   const confirmer = (e) => {
     e.preventDefault();
     console.log(jasen);
-    setEhto({...ehto, jnro: true})
+    setEhto({ ...ehto, jnro: true });
   };
 
-  const NumeroInput = () => {
+  const Frag1 = () => {
     return (
-      <div
-        style={styles.outer}
-      >
-        <form onSubmit={confirmer}>
+      <div>
+        {" "}
+        <BotTalk id={2} /> <UserTalker lista={lista1} func={lisaa} />{" "}
+      </div>
+    );
+  };
+  const Frag2 = () => {
+    return (
+      <div>
+        {" "}
+        <BotTalk id={3} /> <UserTalker lista={lista2} func={lisaa} />{" "}
+      </div>
+    );
+  };
+  const Frag3 = () => {
+    return (
+      <div>
+        {" "}
+        <BotTalk id={4} /> <UserTalker lista={lista3} func={lisaa} />{" "}
+      </div>
+    );
+  };
+  const Frag4 = () => {
+    return (
+      <div>
+        {" "}
+        <BotTalk id={5} /> <UserTalker lista={lista4} func={lisaa} />{" "}
+      </div>
+    );
+  };
+  const Frag5 = () => {
+    return (
+      <div>
+        {" "}
+        <BotTalk id={6} /> <UserTalker lista={lista5} func={lisaa} />{" "}
+      </div>
+    );
+  };
+
+  return (
+    <div>
+      <h1 style={{ alignSelf: "auto" }}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
+      <div className="Frame">
+        <BotTalk id={0} />
+        <BotTalk id={1} />
+        <div style={styles.outer}>
           <div className="Row">
-            <label for="jasennro" style={styles.label}>{t("Jäsennumero")}</label>
+            <label for="jasennro" style={styles.label}>
+              {t("Jäsennumero")}
+            </label>
             <input
               style={styles.input}
               type="text"
               name="jasennro"
               value={jasen}
               onChange={(e) => handleChange(e)}
-              //autoFocus miten pelata ilman autofocusta? ettei homma kaadu
             />
-            <button className='Btn' type='submit'>{t('OK')}</button>
+            <button className="Btn" onClick={confirmer}>
+              {t("OK")}
+            </button>
           </div>
-        </form>
+        </div>
+        {ehto.jnro ? <Frag1 /> : null}
+        {ehto.paikka ? <Frag2 /> : null}
+        {ehto.mita ? <Frag3 /> : null}
+        {ehto.milloin ? <Frag4 /> : null}
+        {ehto.osaan ? <Frag5 /> : null}
       </div>
-    );
-  };
-
-  const Frag1 = () => {return( <div> <BotTalk id={2}/> <UserTalker lista={lista1} func={lisaa}/> </div>)}
-  const Frag2 = () => {return( <div> <BotTalk id={3} /> <UserTalker lista={lista2} func={lisaa}/> </div>)}
-  const Frag3 = () => {return( <div> <BotTalk id={4} /> <UserTalker lista={lista3} func={lisaa}/> </div>)}
-  const Frag4 = () => {return( <div> <BotTalk id={5} /> <UserTalker lista={lista4} func={lisaa}/> </div>)}
-  const Frag5 = () => {return( <div> <BotTalk id={6} /> <UserTalker lista={lista5} func={lisaa}/> </div>)}
-
-  return (
-    <div>
-      <h1 style={{ alignSelf: "auto" }}>{ t('Tervetuloa Pestikoneeseen!!!') }</h1>
-      <div className="Frame">
-      <BotTalk id={0} />
-        <BotTalk id={1} />
-        <NumeroInput />
-        {ehto.jnro ? <Frag1/> : null}
-        {ehto.paikka ? <Frag2/> : null}
-        {ehto.mita ? <Frag3/> : null}
-        {ehto.milloin ? <Frag4/> : null}
-        {ehto.osaan ? <Frag5/> : null}
-
-        
-        
-        
+      <div className="Frame2">
+        <button className="Btn" onClick={clear}>
+          {t("Tyhjennä")}
+        </button>
+        {valinta.length > 0 ? <Valinta lista={valinta} /> : null}
       </div>
-      <div className='Frame2'>
-        <button className='Btn' onClick={clear}>{t('Tyhjennä')}</button>
-        {valinta.length>0 ? <Valinta lista={valinta} /> : null}
-      </div>
-      <div className='Frame3'>
-        <button class="UserTalker Talker" onClick={() => i18n.changeLanguage('fi')}>Suomi</button>
-        <button class="UserTalker Talker" onClick={() => i18n.changeLanguage('en')}>English</button>
-        <button class="UserTalker Talker" onClick={() => i18n.changeLanguage('se')} >Svenska</button>
+      <div className="Frame3 Row">
+        <button
+          class="UserTalker Talker"
+          onClick={() => i18n.changeLanguage("fi")}
+        >
+          Suomi
+        </button>
+        <button
+          class="UserTalker Talker"
+          onClick={() => i18n.changeLanguage("en")}
+        >
+          English
+        </button>
+        <button
+          class="UserTalker Talker"
+          onClick={() => i18n.changeLanguage("se")}
+        >
+          Svenska
+        </button>
       </div>
     </div>
   );
@@ -135,13 +176,13 @@ const styles = {
     textAlign: "center",
   },
   label: {
-    margin: 'auto',
+    margin: "auto",
     paddingRight: 10,
-    color: 'Yellow'
+    color: "Yellow",
   },
   outer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-  }
+  },
 };
