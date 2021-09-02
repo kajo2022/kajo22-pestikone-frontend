@@ -1,15 +1,18 @@
-import './App.css';
-import Frame from './Frame.js'; 
+//import logo from './logo.svg';
+//import './App.css';
+import './pestistyle.css'
+import {ChatBox} from 'react-chatbox-component';
+import {useState} from "react";
+import './'
+import Frame from './Frame';
+
 
 const App = () => {
 
+  
   return (
     <div className="App">
-      <h1>Pestikone :DDDD</h1>
-      <label for='jasennumero'>Jäsennumerosi</label>
-      <input type='text' id='jasennumero' name='jasennumero'></input>
-      <button id='nappulaxd' onClick={ () => console.log(document.getElementsByClassName('message-input')[0].value) } >Asia selvä!</button>
-      <ChatBox messages={messages} user={user}/>
+      <Frame/>
     </div>
   );
   
