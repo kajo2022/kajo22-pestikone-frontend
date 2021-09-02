@@ -4,8 +4,14 @@ import UserTalker from "./UserTalker";
 import BotTalk from "./BotTalk";
 import Valinta from "./Valinta";
 
+import '../services/i18n'
+import { useTranslation } from "react-i18next";
+
 
 export default function Frame() {
+
+  const {t, i18n } = useTranslation();
+
   const lista1 = require("../tags1.json");
   const lista2 = require("../tags2.json");
 
@@ -58,7 +64,7 @@ export default function Frame() {
 
   return (
     <div>
-      <h1 style={{ alignSelf: "auto" }}>Tervetuloa Pestikoneeseen!!!</h1>
+      <h1 style={{ alignSelf: "auto" }}>{ t('Tervetuloa Pestikoneeseen!!!') }</h1>
       <div className="Frame">
       <BotTalk id={0} />
         <BotTalk id={1} />
