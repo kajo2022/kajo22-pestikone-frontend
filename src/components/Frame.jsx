@@ -4,8 +4,14 @@ import UserTalker from "./UserTalker";
 import BotTalk from "./BotTalk";
 import Valinta from "./Valinta";
 
+import '../services/i18n'
+import { useTranslation } from "react-i18next";
+
 
 export default function Frame() {
+
+  const {t, i18n } = useTranslation();
+
   const lista1 = require("../tags1.json");
   const lista2 = require("../tags2.json");
 
@@ -40,7 +46,7 @@ export default function Frame() {
       >
         <form onSubmit={confirmer}>
           <div className="Row">
-            <label for="jasennro" style={styles.label}>Jäsennumero</label>
+            <label for="jasennro" style={styles.label}>{t("Jäsennumero")}</label>
             <input
               style={styles.input}
               type="text"
@@ -49,7 +55,7 @@ export default function Frame() {
               onChange={(e) => handleChange(e)}
               //autoFocus miten pelata ilman autofocusta?
             />
-            <button className='Btn' type='submit'>OK</button>
+            <button className='Btn' type='submit'>{t('OK')}</button>
           </div>
         </form>
       </div>
@@ -58,7 +64,7 @@ export default function Frame() {
 
   return (
     <div>
-      <h1 style={{ alignSelf: "auto" }}>Tervetuloa Pestikoneeseen!!!</h1>
+      <h1 style={{ alignSelf: "auto" }}>{ t('Tervetuloa Pestikoneeseen!!!') }</h1>
       <div className="Frame">
       <BotTalk id={0} />
         <BotTalk id={1} />
@@ -69,8 +75,13 @@ export default function Frame() {
         <UserTalker lista={lista2} func={lisaa}/>
       </div>
       <div className='Frame2'>
-        <button className='Btn' onClick={clear}>Tyhjennä</button>
+        <button className='Btn' onClick={clear}>{t('Tyhjennä')}</button>
         {valinta.length>0 ? <Valinta lista={valinta} /> : null}
+      </div>
+      <div className='Frame3'>
+        <button class="UserTalker Talker" onClick={() => i18n.changeLanguage('fi')}>Suomi</button>
+        <button class="UserTalker Talker" onClick={() => i18n.changeLanguage('en')}>English</button>
+        <button class="UserTalker Talker" onClick={() => i18n.changeLanguage('se')} >Svenska</button>
       </div>
     </div>
   );
