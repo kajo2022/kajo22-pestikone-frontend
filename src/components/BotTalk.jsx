@@ -1,10 +1,9 @@
-import React from 'react'; 
-import './Frame.css'; 
-import BotImage from "./kajo_bot.png";
+import React from 'react';
+import BotImage from "./../assets/images/kajo_bot.png";
 
 
 const BotTalk = (props) => {
-    const listaus = require("./botalk.json");
+    const listaus = require("../botalk.json");
     const id = props.id;
     const kyssari = listaus[id];
     return (
