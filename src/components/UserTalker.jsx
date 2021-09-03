@@ -1,4 +1,6 @@
 import React from 'react';
+import Styles from '../assets/styles/Style';
+import { css } from 'aphrodite';
 
 export default function UserTalk(props) {
 
@@ -20,8 +22,8 @@ export default function UserTalk(props) {
 
     return (
         lista.map((item) => (
-        <div className='Direct'>
-        <div className='UserTalker Talker' 
+        <div className={css(Styles.direct)}>
+        <div className={css(Styles.userTalker, Styles.talker)} 
         key={item.id} 
         onClick={(e) => ClickThis(e, item)}> 
         {item.desc} 

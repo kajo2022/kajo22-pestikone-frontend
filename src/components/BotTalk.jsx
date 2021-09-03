@@ -1,7 +1,8 @@
 import React from 'react';
 import BotImage from "./../assets/images/kajo_bot.png";
-import { StyleSheet, css } from 'aphrodite';
-import { fadeInUp } from 'react-animations';
+import { css } from 'aphrodite';
+//import { fadeInUp } from 'react-animations';
+import Styles from '../assets/styles/Style';
 
 
 
@@ -11,12 +12,13 @@ const BotTalk = (props) => {
     const id = props.id;
     const kyssari = listaus[id];
     return (
-      <div className={css(styles.fadeInUp)}>
-        <img className="Avatar-kajo" src={BotImage} alt="Kajo-Bot" />
-        <div className="UserTalker"> {kyssari.desc} </div>
+      <div className={css(Styles.fadeInUp)}>
+        <img className={css(Styles.avatar)} src={BotImage} alt="Kajo-Bot" />
+        <div className={css(Styles.userTalker)}> {kyssari.desc} </div>
       </div>
     );
   };
+  /*
 const styles = StyleSheet.create({
   fadeInUp: {
     animationName: fadeInUp, 
@@ -25,5 +27,5 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   }
 })
-
+*/
 export default BotTalk;
