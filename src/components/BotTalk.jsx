@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
     animationName: fadeInUp, 
     animationDuration: '3s',
     display: 'flex',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    animationIterationCount: 1,
   }
 })
 
