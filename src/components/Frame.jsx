@@ -1,8 +1,10 @@
-import "./../assets/styles/Frame.css";
+//import "./../assets/styles/Frame.css";
 import React, { useState, useEffect } from "react";
 import UserTalker from "./UserTalker";
 import BotTalk from "./BotTalk";
 import Valinta from "./Valinta";
+import Styles from "../assets/styles/Style";
+import { css } from "aphrodite";
 
 import "../services/i18n";
 import { useTranslation } from "react-i18next";
@@ -109,11 +111,11 @@ export default function Frame() {
   return (
     <div>
       <h1 style={{ alignSelf: "auto" }}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
-      <div className="Frame">
+      <div className={css(Styles.frame)}>
         <BotTalk id={0} />
         <BotTalk id={1} />
         <div style={styles.outer}>
-          <div className="Row">
+          <div className={css(Styles.row)}>
             <label for="jasennro" style={styles.label}>
               {t("Jäsennumero")}
             </label>
@@ -124,7 +126,7 @@ export default function Frame() {
               value={jasen}
               onChange={(e) => handleChange(e)}
             />
-            <button className="Btn" onClick={confirmer}>
+            <button className={css(Styles.btn)} onClick={confirmer}>
               {t("OK")}
             </button>
           </div>
@@ -135,27 +137,27 @@ export default function Frame() {
         {ehto.milloin ? <Frag4 /> : null}
         {ehto.osaan ? <Frag5 /> : null}
       </div>
-      <div className="Frame2">
-        <button className="Btn" onClick={clear}>
+      <div className={css(Styles.frame2)}>
+        <button className={css(Styles.btn)} onClick={clear}>
           {t("Tyhjennä")}
         </button>
         {valinta.length > 0 ? <Valinta lista={valinta} /> : null}
       </div>
-      <div className="Frame3 Row">
+      <div className={css(Styles.row)}>
         <button
-          class="UserTalker Talker"
+          class={css(Styles.userTalker, Styles.talker)}
           onClick={() => i18n.changeLanguage("fi")}
         >
           Suomi
         </button>
         <button
-          class="UserTalker Talker"
+          class={css(Styles.userTalker, Styles.talker)}
           onClick={() => i18n.changeLanguage("en")}
         >
           English
         </button>
         <button
-          class="UserTalker Talker"
+          class={css(Styles.userTalker, Styles.talker)}
           onClick={() => i18n.changeLanguage("se")}
         >
           Svenska
