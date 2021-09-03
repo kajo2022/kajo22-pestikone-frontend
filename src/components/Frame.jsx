@@ -70,40 +70,40 @@ export default function Frame() {
   const Frag1 = () => {
     return (
       <div>
-        {" "}
-        <BotTalk id={2} /> <UserTalker lista={lista1} func={lisaa} />{" "}
+        <BotTalk id={2} /> 
+        <UserTalker lista={lista1} func={lisaa} />
       </div>
     );
   };
   const Frag2 = () => {
     return (
       <div>
-        {" "}
-        <BotTalk id={3} /> <UserTalker lista={lista2} func={lisaa} />{" "}
+        <BotTalk id={3} /> 
+        <UserTalker lista={lista2} func={lisaa} />
       </div>
     );
   };
   const Frag3 = () => {
     return (
       <div>
-        {" "}
-        <BotTalk id={4} /> <UserTalker lista={lista3} func={lisaa} />{" "}
+        <BotTalk id={4} /> 
+        <UserTalker lista={lista3} func={lisaa} />
       </div>
     );
   };
   const Frag4 = () => {
     return (
       <div>
-        {" "}
-        <BotTalk id={5} /> <UserTalker lista={lista4} func={lisaa} />{" "}
+        <BotTalk id={5} /> 
+        <UserTalker lista={lista4} func={lisaa} />
       </div>
     );
   };
   const Frag5 = () => {
     return (
       <div>
-        {" "}
-        <BotTalk id={6} /> <UserTalker lista={lista5} func={lisaa} />{" "}
+        <BotTalk id={6} /> 
+        <UserTalker lista={lista5} func={lisaa} />
       </div>
     );
   };
