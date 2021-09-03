@@ -48,15 +48,21 @@ export default function Frame() {
     for (var i = 0; i < valinta.length; i++) {
       if (valinta[i].type === 1) {
         setEhto({ ...ehto, paikka: true });
+        //Laukaisee Frag2
+        //kutsuu uudestaan myös tyylin, jolloin välähtää
+        //kutsupino pitää jotenkin korjata
       }
-      if (valinta[i].type === 2) {
+      if (valinta[i].type === 2 && valinta.length === 3) {
         setEhto({ ...ehto, mita: true });
+        //Laukaisee Frag3
       }
       if (valinta[i].type === 3) {
         setEhto({ ...ehto, milloin: true });
+        //Laukaisee Frag4
       }
-      if (valinta[i].type === 4) {
+      if (valinta[i].type === 4 && valinta.length === 6) {
         setEhto({ ...ehto, osaan: true });
+        //Laukaisee Frag5
       }
     }
   }, [valinta]);
@@ -65,6 +71,7 @@ export default function Frame() {
     e.preventDefault();
     console.log(jasen);
     setEhto({...ehto, jnro: true });
+    //laukaisee Frag1
   };
 
   const Frag1 = () => {
