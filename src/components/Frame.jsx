@@ -17,11 +17,6 @@ export default function Frame() {
   const lista3 = require("../tags3.json");
   const lista4 = require("../tags4.json");
   const lista5 = require("../tags5.json");
-  const [ehto1, setEhto1] = useState(false);
-  const [ehto2, setEhto2] = useState(false);
-  const [ehto3, setEhto3] = useState(false);
-  const [ehto4, setEhto4] = useState(false);
-  const [ehto5, setEhto5] = useState(false);
   const initState = {
     jnro: false,
     paikka: false,
@@ -48,24 +43,6 @@ export default function Frame() {
     setValinta([]);
     setEhto(initState);
   };
-/*
-  useEffect(() => {
-    for (var i = 0; i < valinta.length; i++) {
-      if (valinta[i].type === 1) {
-        setEhto2(true);
-      }
-      if (valinta[i].type === 2) {
-        setEhto3(true);
-      }
-      if (valinta[i].type === 3) {
-        setEhto4(true);
-      }
-      if (valinta[i].type === 4) {
-        setEhto5(true);
-      }
-    }
-  }, [valinta]);
-  */
 
   useEffect(() => {
     for (var i = 0; i < valinta.length; i++) {
@@ -87,14 +64,13 @@ export default function Frame() {
   const confirmer = (e) => {
     e.preventDefault();
     console.log(jasen);
-    //setEhto1(true);
     setEhto({...ehto, jnro: true });
   };
 
   const Frag1 = () => {
     return (
       <div>
-        <BotTalk id={2} /> 
+        <BotTalk id={2} onko={ehto.paikka}/> 
         <UserTalker lista={lista1} func={lisaa} />
       </div>
     );
@@ -102,7 +78,7 @@ export default function Frame() {
   const Frag2 = () => {
     return (
       <div>
-        <BotTalk id={3} /> 
+        <BotTalk id={3} onko={ehto.mita}/> 
         <UserTalker lista={lista2} func={lisaa} />
       </div>
     );
@@ -110,7 +86,7 @@ export default function Frame() {
   const Frag3 = () => {
     return (
       <div>
-        <BotTalk id={4} /> 
+        <BotTalk id={4} onko={ehto.milloin}/> 
         <UserTalker lista={lista3} func={lisaa} />
       </div>
     );
@@ -118,7 +94,7 @@ export default function Frame() {
   const Frag4 = () => {
     return (
       <div>
-        <BotTalk id={5} /> 
+        <BotTalk id={5} onko={ehto.osaan}/> 
         <UserTalker lista={lista4} func={lisaa} />
       </div>
     );
@@ -138,13 +114,13 @@ export default function Frame() {
       <div className={css(Styles.frame)}>
         <BotTalk id={0} />
         <BotTalk id={1} />
-        <div style={styles.outer}>
+        <div className={css(Styles.outer)}>
           <div className={css(Styles.row)}>
-            <label for="jasennro" style={styles.label}>
+            <label for="jasennro" className={css(Styles.label)}>
               {t("Jäsennumero")}
             </label>
             <input
-              style={styles.input}
+              className={css(Styles.input)}
               type="text"
               name="jasennro"
               value={jasen}
@@ -155,11 +131,11 @@ export default function Frame() {
             </button>
           </div>
         </div>
-        {ehto.paikka ? <Frag1 /> : null}
-        {ehto.mita ? <Frag2 /> : null}
-        {ehto.milloin ? <Frag3 /> : null}
-        {ehto.osaan ? <Frag4 /> : null}
-        {ehto5 ? <Frag5 /> : null}
+        {ehto.jnro ? <Frag1 /> : null}
+        {ehto.paikka ? <Frag2 /> : null}
+        {ehto.mita ? <Frag3 /> : null}
+        {ehto.milloin ? <Frag4 /> : null}
+        {ehto.osaan ? <Frag5 /> : null}
       </div>
       <div className={css(Styles.frame2)}>
         <button className={css(Styles.btn)} onClick={clear}>
@@ -191,24 +167,4 @@ export default function Frame() {
   );
 }
 
-const styles = {
-  input: {
-    height: 35,
-    borderColor: "gray",
-    borderWidth: 1,
-    fontSize: 20,
-    width: 100,
-    display: "flex",
-    textAlign: "center",
-  },
-  label: {
-    margin: "auto",
-    paddingRight: 10,
-    color: "Yellow",
-  },
-  outer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-};
+

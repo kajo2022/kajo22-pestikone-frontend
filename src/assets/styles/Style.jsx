@@ -82,7 +82,26 @@ const Styles = StyleSheet.create({
     position: {
         display: 'flex',
         flexWrap: 'wrap'
-    }
+    },
+    input: {
+        height: '35px',
+        borderColor: "gray",
+        borderWidth: '1px',
+        fontSize: '20px',
+        width: '100px',
+        display: "flex",
+        textAlign: "center",
+      },
+      label: {
+        margin: "auto",
+        paddingRight: '10px',
+        color: "Yellow",
+      },
+      outer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      },
 
 })
 
