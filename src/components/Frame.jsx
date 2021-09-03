@@ -17,6 +17,11 @@ export default function Frame() {
   const lista3 = require("../tags3.json");
   const lista4 = require("../tags4.json");
   const lista5 = require("../tags5.json");
+  const [ehto1, setEhto1] = useState(false);
+  const [ehto2, setEhto2] = useState(false);
+  const [ehto3, setEhto3] = useState(false);
+  const [ehto4, setEhto4] = useState(false);
+  const [ehto5, setEhto5] = useState(false);
   const initState = {
     jnro: false,
     paikka: false,
@@ -43,6 +48,24 @@ export default function Frame() {
     setValinta([]);
     setEhto(initState);
   };
+/*
+  useEffect(() => {
+    for (var i = 0; i < valinta.length; i++) {
+      if (valinta[i].type === 1) {
+        setEhto2(true);
+      }
+      if (valinta[i].type === 2) {
+        setEhto3(true);
+      }
+      if (valinta[i].type === 3) {
+        setEhto4(true);
+      }
+      if (valinta[i].type === 4) {
+        setEhto5(true);
+      }
+    }
+  }, [valinta]);
+  */
 
   useEffect(() => {
     for (var i = 0; i < valinta.length; i++) {
@@ -64,7 +87,8 @@ export default function Frame() {
   const confirmer = (e) => {
     e.preventDefault();
     console.log(jasen);
-    setEhto({ ...ehto, jnro: true });
+    //setEhto1(true);
+    setEhto({...ehto, jnro: true });
   };
 
   const Frag1 = () => {
@@ -131,11 +155,11 @@ export default function Frame() {
             </button>
           </div>
         </div>
-        {ehto.jnro ? <Frag1 /> : null}
-        {ehto.paikka ? <Frag2 /> : null}
-        {ehto.mita ? <Frag3 /> : null}
-        {ehto.milloin ? <Frag4 /> : null}
-        {ehto.osaan ? <Frag5 /> : null}
+        {ehto.paikka ? <Frag1 /> : null}
+        {ehto.mita ? <Frag2 /> : null}
+        {ehto.milloin ? <Frag3 /> : null}
+        {ehto.osaan ? <Frag4 /> : null}
+        {ehto5 ? <Frag5 /> : null}
       </div>
       <div className={css(Styles.frame2)}>
         <button className={css(Styles.btn)} onClick={clear}>

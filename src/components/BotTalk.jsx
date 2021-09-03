@@ -8,11 +8,12 @@ import Styles from '../assets/styles/Style';
 
 
 const BotTalk = (props) => {
+    const tyyli = (props.onko ? css(Styles.position) : css(Styles.fadeInUp))
     const listaus = require("../botalk.json");
     const id = props.id;
     const kyssari = listaus[id];
     return (
-      <div className={css(Styles.fadeInUp)}>
+      <div className={tyyli}>
         <img className={css(Styles.avatar)} src={BotImage} alt="Kajo-Bot" />
         <div className={css(Styles.userTalker)}> {kyssari.desc} </div>
       </div>

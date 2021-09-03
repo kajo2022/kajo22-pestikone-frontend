@@ -68,19 +68,21 @@ const Styles = StyleSheet.create({
         borderRadius: '15px',
         fontWeight: 'bold',
         maxHeight: '45px',
-    },
-    
-    hover: {
         ':hover': {
             cursor: 'pointer'
         }
+        
     },
     fadeInUp: {
         animationName: fadeInUp, 
         animationDuration: '3s',
         display: 'flex',
         flexWrap: 'wrap'
-      }
+      },
+    position: {
+        display: 'flex',
+        flexWrap: 'wrap'
+    }
 
 })
 
