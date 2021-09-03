@@ -1,7 +1,6 @@
 import React from 'react';
 import BotImage from "./../assets/images/kajo_bot.png";
 import { css } from 'aphrodite';
-//import { fadeInUp } from 'react-animations';
 import Styles from '../assets/styles/Style';
 
 
@@ -19,15 +18,4 @@ const BotTalk = (props) => {
       </div>
     );
   };
-  /*
-const styles = StyleSheet.create({
-  fadeInUp: {
-    animationName: fadeInUp, 
-    animationDuration: '3s',
-    display: 'flex',
-    flexWrap: 'wrap',
-    animationIterationCount: 1,
-  }
-})
-*/
 export default BotTalk;

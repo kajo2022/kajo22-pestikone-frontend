@@ -2,6 +2,14 @@ import { StyleSheet } from "aphrodite";
 import { fadeInUp } from 'react-animations';
 
 const Styles = StyleSheet.create({
+    app : {
+        backgroundColor: 'black',
+        height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'aliceblue',
+      },
     frame: {
         height: '70vh',
         minWidth: '70vh',
@@ -54,6 +62,12 @@ const Styles = StyleSheet.create({
         display: 'flex',
         flexWrap: 'wrap',
     },
+    container: {
+        display: 'flex'
+    },
+    column: {
+        flexDirection: 'column',
+    },
     
     avatar: {
         maxWidth: '70px',
@@ -102,7 +116,9 @@ const Styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
       },
-
+      textCent: {
+          textAlign: 'center'
+      }
 })
 
 export default Styles;

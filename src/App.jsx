@@ -1,13 +1,15 @@
-import './App.css';
+//import './App.css';
 import '.'
 import Frame from './components/Frame.jsx';
+import Styles from './assets/styles/Style';
+import { css } from 'aphrodite';
 
 
 const App = () => {
 
   
   return (
-    <div className="App">
+    <div className={css(Styles.app)}>
       <Frame/>
     </div>
   );

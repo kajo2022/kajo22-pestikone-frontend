@@ -117,7 +117,29 @@ export default function Frame() {
 
   return (
     <div>
-      <h1 style={{ alignSelf: "auto" }}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
+      <h1 className={css(Styles.textCent)}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
+      <div className={css(Styles.container)}>
+      <div className={css(Styles.column)}>
+        <button
+          class={css(Styles.userTalker, Styles.talker)}
+          onClick={() => i18n.changeLanguage("fi")}
+        >
+          Suomi
+        </button>
+        <button
+          class={css(Styles.userTalker, Styles.talker)}
+          onClick={() => i18n.changeLanguage("en")}
+        >
+          English
+        </button>
+        <button
+          class={css(Styles.userTalker, Styles.talker)}
+          onClick={() => i18n.changeLanguage("se")}
+        >
+          Svenska
+        </button>
+      </div>
+      <div className={css(Styles.column)}>
       <div className={css(Styles.frame)}>
         <BotTalk id={0} />
         <BotTalk id={1} />
@@ -144,32 +166,16 @@ export default function Frame() {
         {ehto.milloin ? <Frag4 /> : null}
         {ehto.osaan ? <Frag5 /> : null}
       </div>
+      
       <div className={css(Styles.frame2)}>
         <button className={css(Styles.btn)} onClick={clear}>
           {t("Tyhjennä")}
         </button>
         {valinta.length > 0 ? <Valinta lista={valinta} /> : null}
       </div>
-      <div className={css(Styles.row)}>
-        <button
-          class={css(Styles.userTalker, Styles.talker)}
-          onClick={() => i18n.changeLanguage("fi")}
-        >
-          Suomi
-        </button>
-        <button
-          class={css(Styles.userTalker, Styles.talker)}
-          onClick={() => i18n.changeLanguage("en")}
-        >
-          English
-        </button>
-        <button
-          class={css(Styles.userTalker, Styles.talker)}
-          onClick={() => i18n.changeLanguage("se")}
-        >
-          Svenska
-        </button>
       </div>
+      </div>
+      
     </div>
   );
 }
