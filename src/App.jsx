@@ -1,6 +1,4 @@
-//import logo from './logo.svg';
-//import './App.css';
-import {useState} from "react";
+import './App.css';
 import '.'
 import Frame from './components/Frame.jsx';
 
