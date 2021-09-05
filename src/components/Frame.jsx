@@ -1,4 +1,3 @@
-//import "./../assets/styles/Frame.css";
 import React, { useState, useEffect } from "react";
 import UserTalker from "./UserTalker";
 import BotTalk from "./BotTalk";

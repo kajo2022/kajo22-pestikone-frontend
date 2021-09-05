@@ -13,10 +13,7 @@ export default function UserTalk(props) {
 
     function ClickThis(e, key) {
         e.preventDefault();
-         
-        console.log(key)
         adder(key);
-  
       }
     
 

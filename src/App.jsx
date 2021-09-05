@@ -1,4 +1,3 @@
-//import './App.css';
 import '.'
 import Frame from './components/Frame.jsx';
 import Styles from './assets/styles/Style';
