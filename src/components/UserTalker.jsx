@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Styles from '../assets/styles/Style';
 import { css } from 'aphrodite';
 
@@ -8,6 +8,10 @@ export default function UserTalk(props) {
     
 
     const adder = props.func;
+
+    const tyyli = (props.onko ? null : Styles.fadeInRight)
+
+    
 
 
 
@@ -20,7 +24,7 @@ export default function UserTalk(props) {
     return (
         lista.map((item) => (
         <div className={css(Styles.direct)}>
-        <div className={css(Styles.userTalker, Styles.talker)} 
+        <div className={css(Styles.userTalker, Styles.talker, tyyli)} 
         key={item.id} 
         onClick={(e) => ClickThis(e, item)}> 
         {item.desc} 

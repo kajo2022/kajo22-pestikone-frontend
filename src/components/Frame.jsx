@@ -51,7 +51,7 @@ export default function Frame() {
         //kutsuu uudestaan myös tyylin, jolloin välähtää
         //kutsupino pitää jotenkin korjata
       }
-      if (valinta[i].type === 2 && valinta.length === 3) {
+      if (valinta[i].type === 2) {
         setEhto({ ...ehto, mita: true });
         //Laukaisee Frag3
       }
@@ -59,7 +59,7 @@ export default function Frame() {
         setEhto({ ...ehto, milloin: true });
         //Laukaisee Frag4
       }
-      if (valinta[i].type === 4 && valinta.length === 6) {
+      if (valinta[i].type === 4) {
         setEhto({ ...ehto, osaan: true });
         //Laukaisee Frag5
       }
@@ -68,7 +68,7 @@ export default function Frame() {
 
   const confirmer = (e) => {
     e.preventDefault();
-    console.log(jasen);
+    //console.log(jasen);
     setEhto({...ehto, jnro: true });
     //laukaisee Frag1
   };
@@ -77,7 +77,7 @@ export default function Frame() {
     return (
       <div>
         <BotTalk id={2} onko={ehto.paikka}/> 
-        <UserTalker lista={lista1} func={lisaa} />
+        <UserTalker lista={lista1} func={lisaa} onko={ehto.paikka}/>
       </div>
     );
   };
@@ -85,7 +85,7 @@ export default function Frame() {
     return (
       <div>
         <BotTalk id={3} onko={ehto.mita}/> 
-        <UserTalker lista={lista2} func={lisaa} />
+        <UserTalker lista={lista2} func={lisaa} onko={ehto.mita}/>
       </div>
     );
   };
@@ -93,7 +93,7 @@ export default function Frame() {
     return (
       <div>
         <BotTalk id={4} onko={ehto.milloin}/> 
-        <UserTalker lista={lista3} func={lisaa} />
+        <UserTalker lista={lista3} func={lisaa} onko={ehto.milloin}/>
       </div>
     );
   };
@@ -101,14 +101,14 @@ export default function Frame() {
     return (
       <div>
         <BotTalk id={5} onko={ehto.osaan}/> 
-        <UserTalker lista={lista4} func={lisaa} />
+        <UserTalker lista={lista4} func={lisaa} onko={ehto.osaan}/>
       </div>
     );
   };
   const Frag5 = () => {
     return (
       <div>
-        <BotTalk id={6} /> 
+        <BotTalk id={6}/> 
         <UserTalker lista={lista5} func={lisaa} />
       </div>
     );
@@ -142,7 +142,7 @@ export default function Frame() {
       <div className={css(Styles.frame)}>
         <BotTalk id={0} />
         <BotTalk id={1} />
-        <div className={css(Styles.outer)}>
+        <div className={css(Styles.outer, Styles.fadeInUp)}>
           <div className={css(Styles.row)}>
             <label for="jasennro" className={css(Styles.label)}>
               {t("Jäsennumero")}
