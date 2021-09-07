@@ -20,8 +20,11 @@ export default function Frame() {
     jnro: false,
     paikka: false,
     mita: false,
+    mita2: false,
     milloin: false,
     osaan: false,
+    osaan2: false,
+    patev: false
   };
   const [ehto, setEhto] = useState(initState);
 
@@ -44,27 +47,39 @@ export default function Frame() {
   };
 
   useEffect(() => {
-    for (var i = 0; i < valinta.length; i++) {
-      if (valinta[i].type === 1) {
+      if (valinta.length === 1) {
         setEhto({ ...ehto, paikka: true });
         //Laukaisee Frag2
         //kutsuu uudestaan myös tyylin, jolloin välähtää
-        //kutsupino pitää jotenkin korjata
       }
-      if (valinta[i].type === 2) {
+      if (valinta.length === 2) {
         setEhto({ ...ehto, mita: true });
+        //tappaa fadin
+      }
+      if (valinta.length === 3) {
+        setEhto({ ...ehto, mita2: true });
         //Laukaisee Frag3
       }
-      if (valinta[i].type === 3) {
+      if (valinta.length === 4) {
         setEhto({ ...ehto, milloin: true });
         //Laukaisee Frag4
       }
-      if (valinta[i].type === 4) {
+      if (valinta.length === 5) {
         setEhto({ ...ehto, osaan: true });
+        //tappaa fadin
+      }
+      if (valinta.length === 6) {
+        setEhto({ ...ehto, osaan2: true });
         //Laukaisee Frag5
       }
-    }
+      if (valinta.length > 6) {
+        setEhto({ ...ehto, patev: true });
+        //tappaa fadin
+      }
+    
   }, [valinta]);
+
+  
 
   const confirmer = (e) => {
     e.preventDefault();
@@ -108,8 +123,8 @@ export default function Frame() {
   const Frag5 = () => {
     return (
       <div>
-        <BotTalk id={6}/> 
-        <UserTalker lista={lista5} func={lisaa} />
+        <BotTalk id={6} onko={ehto.patev}/> 
+        <UserTalker lista={lista5} func={lisaa} onko={ehto.patev}/>
       </div>
     );
   };
@@ -161,9 +176,9 @@ export default function Frame() {
         </div>
         {ehto.jnro ? <Frag1 /> : null}
         {ehto.paikka ? <Frag2 /> : null}
-        {ehto.mita ? <Frag3 /> : null}
+        {ehto.mita2 ? <Frag3 /> : null}
         {ehto.milloin ? <Frag4 /> : null}
-        {ehto.osaan ? <Frag5 /> : null}
+        {ehto.osaan2 ? <Frag5 /> : null}
       </div>
       
       <div className={css(Styles.frame2)}>
