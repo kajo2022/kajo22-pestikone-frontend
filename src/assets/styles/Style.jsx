@@ -19,7 +19,8 @@ const Styles = StyleSheet.create({
         marginLeft: 'auto',
         backgroundColor: 'blueviolet',
         color: 'aliceblue',
-        overflowY: 'auto'
+        overflowY: 'auto',
+        overflowX: 'hidden'
     },
     frame2: {
         maxHeight: '30vh',
