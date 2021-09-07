@@ -7,17 +7,12 @@ import Styles from '../assets/styles/Style';
 
 
 const BotTalk = (props) => {
-    //const tyyli = (props.onko ? css(Styles.position) : css(Styles.fadeInUp))
+    const tyyli = (props.onko ? css(Styles.position) : css(Styles.fadeInUp))
 
-    const [tyyli, setTyyli] = useState(css(Styles.fadeInUp))
+    //const [tyyli, setTyyli] = useState(css(Styles.fadeInUp))
     const listaus = require("../botalk.json");
     const id = props.id;
     const kyssari = listaus[id];
-
-    useEffect(() => {
-      setTyyli(css(Styles.position))
-    }, [])
-    
 
     return (
       <div className={tyyli}>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Styles from '../assets/styles/Style';
 import { css } from 'aphrodite';
 
@@ -10,9 +10,6 @@ export default function UserTalk(props) {
     const adder = props.func;
 
     const tyyli = (props.onko ? null : Styles.fadeInRight)
-
-    
-
 
 
     function ClickThis(e, key) {
