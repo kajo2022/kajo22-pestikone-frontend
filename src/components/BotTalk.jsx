@@ -16,7 +16,6 @@ const BotTalk = (props) => {
 
     useEffect(() => {
      refit.current.scrollIntoView({behavior: 'smooth', block: 'start'})
-     refit.current = null;
     
     }, [])
 

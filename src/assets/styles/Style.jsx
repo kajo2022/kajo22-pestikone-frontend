@@ -122,7 +122,7 @@ const Styles = StyleSheet.create({
       },
       fadeInRight: {
         animationName: fadeInRight, 
-        animationDuration: '3s',
+        animationDuration: '2s',
         display: 'flex',
         flexWrap: 'wrap'
       },
