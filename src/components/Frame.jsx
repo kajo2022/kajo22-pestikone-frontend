@@ -12,8 +12,8 @@ export default function Frame() {
 
   const {t, i18n } = useTranslation();
 
-  const lista1 = require("../tags1.json");
-  const lista2 = require("../tags2.json");
+  const lista1 = require("../tags1");
+  const lista2 = require("../tags2");
 
   const [jasen, setJasen] = useState('');
   const [valinta, setValinta] = useState([]);
@@ -70,9 +70,9 @@ export default function Frame() {
         <BotTalk id={1} />
         <NumeroInput />
         <BotTalk id={2} />
-        <UserTalker lista={lista1} func={lisaa}/>
+        <UserTalker lista={lista1.default} func={lisaa}/>
         <BotTalk id={3} />
-        <UserTalker lista={lista2} func={lisaa}/>
+        <UserTalker lista={lista2.default} func={lisaa}/>
       </div>
       <div className='Frame2'>
         <button className='Btn' onClick={clear}>{t('Tyhjennä')}</button>
