@@ -166,6 +166,7 @@ export default function Frame() {
               className={css(Styles.input)}
               type="text"
               name="jasennro"
+              id="jasennro"
               value={jasen}
               onChange={(e) => handleChange(e)}
             />
