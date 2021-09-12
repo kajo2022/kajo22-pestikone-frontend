@@ -79,9 +79,20 @@ export default function Frame() {
         {valinta.length>0 ? <Valinta lista={valinta} /> : null}
       </div>
       <div className='Frame3'>
-        <button class="UserTalker Talker" onClick={() => i18n.changeLanguage('fi')}>Suomi</button>
-        <button class="UserTalker Talker" onClick={() => i18n.changeLanguage('en')}>English</button>
-        <button class="UserTalker Talker" onClick={() => i18n.changeLanguage('se')} >Svenska</button>
+        <button class="UserTalker Talker" onClick={() => {
+          i18n.changeLanguage('fi');
+          document.documentElement.lang = 'fi';
+          
+        }
+        }>Suomi</button>
+        <button class="UserTalker Talker" onClick={() => {
+          i18n.changeLanguage('en')
+          document.documentElement.lang = 'en'
+          }}>English</button>
+        <button class="UserTalker Talker" onClick={() => {
+          i18n.changeLanguage('se')
+          document.documentElement.lang = 'se'
+       }}>Svenska</button>
       </div>
     </div>
   );
