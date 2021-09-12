@@ -1,15 +1,14 @@
-//import logo from './logo.svg';
-//import './App.css';
-import {useState} from "react";
 import '.'
 import Frame from './components/Frame.jsx';
+import Styles from './assets/styles/Style';
+import { css } from 'aphrodite';
 
 
 const App = () => {
 
   
   return (
-    <div className="App">
+    <div className={css(Styles.app)}>
       <Frame/>
     </div>
   );

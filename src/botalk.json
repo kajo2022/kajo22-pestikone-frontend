@@ -22,5 +22,16 @@
     "id": 5,
     "desc": "Entäpä milloin? Valitse yksi.",
     "type": "when"
+},
+{
+    "id": 6,
+    "desc": "Mitä osaamista haluaisit kehittää? Valitse kaksi.",
+    "type": "exp"
+},
+{
+    "id": 7,
+    "desc": "Mitä pätevyyksiä sinulta löytyy jo? Valitse kaikki soveltuvat.",
+    "type": "quali"
 }
+
 ]
