@@ -1,7 +1,6 @@
 import i18n from './services/i18n'
 
-export default 
-[{ "id": 30, "desc": i18n.t("Yhteistyö- ja ihmissuhdetaidot"), "type": 4 },
+const Tags4 = [{ "id": 30, "desc": i18n.t("Yhteistyö- ja ihmissuhdetaidot"), "type": 4 },
     { "id": 31, "desc": i18n.t("Joustavuus ja aloitekyky"), "type": 4 },
     { "id": 32, "desc": i18n.t("Kehittämisosaaminen"), "type": 4 },
     { "id": 33, "desc": i18n.t("Viestintätaidot"), "type": 4 },
@@ -13,3 +12,6 @@ export default
     { "id": 39, "desc": i18n.t("Johtamistaidot"), "type": 4 },
     { "id": 40, "desc": i18n.t("Projektiosaaminen"), "type": 4 },
     { "id": 41, "desc": i18n.t("Kehittämisosaaminen"), "type": 4 }]
+
+
+export default Tags4; 

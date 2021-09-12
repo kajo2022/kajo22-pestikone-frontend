@@ -13,9 +13,9 @@ export default function Frame() {
 
   const lista1 = require("../tags1");
   const lista2 = require("../tags2");
-  const lista3 = require("../tags3.json");
-  const lista4 = require("../tags4.json");
-  const lista5 = require("../tags5.json");
+  const lista3 = require("../tags3");
+  const lista4 = require("../tags4");
+  const lista5 = require("../tags5");
   const initState = {
     jnro: false,
     paikka: false,
@@ -108,7 +108,7 @@ export default function Frame() {
     return (
       <div>
         <BotTalk id={4} onko={ehto.milloin}/> 
-        <UserTalker lista={lista3} func={lisaa} onko={ehto.milloin}/>
+        <UserTalker lista={lista3.default} func={lisaa} onko={ehto.milloin}/>
       </div>
     );
   };
@@ -116,7 +116,7 @@ export default function Frame() {
     return (
       <div>
         <BotTalk id={5} onko={ehto.osaan}/> 
-        <UserTalker lista={lista4} func={lisaa} onko={ehto.osaan}/>
+        <UserTalker lista={lista4.default} func={lisaa} onko={ehto.osaan}/>
       </div>
     );
   };
@@ -124,7 +124,7 @@ export default function Frame() {
     return (
       <div>
         <BotTalk id={6} onko={ehto.patev}/> 
-        <UserTalker lista={lista5} func={lisaa} onko={ehto.patev}/>
+        <UserTalker lista={lista5.default} func={lisaa} onko={ehto.patev}/>
       </div>
     );
   };

@@ -1,6 +1,6 @@
 import i18n from './services/i18n'
 
-export default [{ "id": 6, "desc": i18n.t("Jotain ihan uutta"), "type": 2 },
+const Tags2 = [{ "id": 6, "desc": i18n.t("Jotain ihan uutta"), "type": 2 },
     { "id": 7, "desc": i18n.t("Muiden ohjaamista"), "type": 2 },
     { "id": 8, "desc": i18n.t("Paljon uusia ihmisiä"), "type": 2 },
     { "id": 9, "desc": i18n.t("Auttaa ja palvella"), "type": 2 },
@@ -20,3 +20,6 @@ export default [{ "id": 6, "desc": i18n.t("Jotain ihan uutta"), "type": 2 },
     { "id": 23, "desc": i18n.t("Paljon vapaa-aikaa"), "type": 2 },
     { "id": 24, "desc": i18n.t("Lapsiystävällinen"), "type": 2 },
     { "id": 25, "desc": i18n.t("Saatan käyttää kesätyöturvaa"), "type": 2 }]
+
+
+export default Tags2; 
