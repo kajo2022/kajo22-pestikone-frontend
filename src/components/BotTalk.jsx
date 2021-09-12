@@ -15,9 +15,10 @@ const BotTalk = (props) => {
     const kyssari = listaus[id];
 
     useEffect(() => {
-     refit.current.scrollIntoView({behavior: 'smooth', block: 'start'})
-    
-    }, [])
+      if (!props.onko) {
+        refit.current.scrollIntoView({behavior: 'smooth', block: 'start'})
+      }
+    }, [props.onko])
 
     return (
       <div className={tyyli} ref={refit}>
