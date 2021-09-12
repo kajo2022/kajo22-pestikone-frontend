@@ -4,6 +4,7 @@ import BotTalk from "./BotTalk";
 import Valinta from "./Valinta";
 import Styles from "../assets/styles/Style";
 import { css } from "aphrodite";
+import { validator } from "../services/Validator";
 
 import "../services/i18n";
 import { useTranslation } from "react-i18next";
@@ -37,8 +38,10 @@ export default function Frame() {
   };
 
   const lisaa = (item) => {
-    console.log(item);
-    setValinta([...valinta, item]);
+    console.log(item.id);
+    if (validator(valinta, item)) {
+      setValinta([...valinta, item]);
+    }
   };
 
   const clear = () => {
@@ -76,10 +79,7 @@ export default function Frame() {
         setEhto({ ...ehto, patev: true });
         //tappaa fadin
       }
-    
   }, [valinta]);
-
-  
 
   const confirmer = (e) => {
     e.preventDefault();
