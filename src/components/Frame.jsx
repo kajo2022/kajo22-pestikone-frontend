@@ -12,11 +12,11 @@ import { useTranslation } from "react-i18next";
 export default function Frame() {
   const { t, i18n } = useTranslation();
 
-  const lista1 = require("../tags1.json");
-  const lista2 = require("../tags2.json");
-  const lista3 = require("../tags3.json");
-  const lista4 = require("../tags4.json");
-  const lista5 = require("../tags5.json");
+  const lista1 = require("../tags1");
+  const lista2 = require("../tags2");
+  const lista3 = require("../tags3");
+  const lista4 = require("../tags4");
+  const lista5 = require("../tags5");
   const initState = {
     jnro: false,
     paikka: false,
@@ -92,7 +92,7 @@ export default function Frame() {
     return (
       <div>
         <BotTalk id={2} onko={ehto.paikka}/> 
-        <UserTalker lista={lista1} func={lisaa} onko={ehto.paikka}/>
+      <UserTalker lista={lista1.default} func={lisaa} onko={ehto.paikka}/>
       </div>
     );
   };
@@ -100,7 +100,7 @@ export default function Frame() {
     return (
       <div>
         <BotTalk id={3} onko={ehto.mita}/> 
-        <UserTalker lista={lista2} func={lisaa} onko={ehto.mita}/>
+      <UserTalker lista={lista2.default} func={lisaa} onko={ehto.mita}/>
       </div>
     );
   };
@@ -108,7 +108,7 @@ export default function Frame() {
     return (
       <div>
         <BotTalk id={4} onko={ehto.milloin}/> 
-        <UserTalker lista={lista3} func={lisaa} onko={ehto.milloin}/>
+        <UserTalker lista={lista3.default} func={lisaa} onko={ehto.milloin}/>
       </div>
     );
   };
@@ -116,7 +116,7 @@ export default function Frame() {
     return (
       <div>
         <BotTalk id={5} onko={ehto.osaan}/> 
-        <UserTalker lista={lista4} func={lisaa} onko={ehto.osaan}/>
+        <UserTalker lista={lista4.default} func={lisaa} onko={ehto.osaan}/>
       </div>
     );
   };
@@ -124,7 +124,7 @@ export default function Frame() {
     return (
       <div>
         <BotTalk id={6} onko={ehto.patev}/> 
-        <UserTalker lista={lista5} func={lisaa} onko={ehto.patev}/>
+        <UserTalker lista={lista5.default} func={lisaa} onko={ehto.patev}/>
       </div>
     );
   };
@@ -134,24 +134,20 @@ export default function Frame() {
       <h1 className={css(Styles.textCent)}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
       <div className={css(Styles.container)}>
       <div className={css(Styles.column)}>
-        <button
-          class={css(Styles.userTalker, Styles.talker)}
-          onClick={() => i18n.changeLanguage("fi")}
-        >
-          Suomi
-        </button>
-        <button
-          class={css(Styles.userTalker, Styles.talker)}
-          onClick={() => i18n.changeLanguage("en")}
-        >
-          English
-        </button>
-        <button
-          class={css(Styles.userTalker, Styles.talker)}
-          onClick={() => i18n.changeLanguage("se")}
-        >
-          Svenska
-        </button>
+        <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
+          i18n.changeLanguage('fi');
+          document.documentElement.lang = 'fi';
+          
+        }
+        }>Suomi</button>
+        <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
+          i18n.changeLanguage('en')
+          document.documentElement.lang = 'en'
+          }}>English</button>
+        <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
+          i18n.changeLanguage('se')
+          document.documentElement.lang = 'se'
+       }}>Svenska</button>
       </div>
       <div className={css(Styles.column)}>
       <div className={css(Styles.frame)}>
@@ -166,6 +162,7 @@ export default function Frame() {
               className={css(Styles.input)}
               type="text"
               name="jasennro"
+              id="jasennro"
               value={jasen}
               onChange={(e) => handleChange(e)}
             />
@@ -180,12 +177,12 @@ export default function Frame() {
         {ehto.milloin ? <Frag4 /> : null}
         {ehto.osaan2 ? <Frag5 /> : null}
       </div>
-      
-      <div className={css(Styles.frame2)}>
+          <div className={css(Styles.frame2)}>
         <button className={css(Styles.btn)} onClick={clear}>
           {t("Tyhjennä")}
         </button>
         {valinta.length > 0 ? <Valinta lista={valinta} /> : null}
+
       </div>
       </div>
       </div>
