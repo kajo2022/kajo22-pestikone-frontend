@@ -10,15 +10,54 @@ export function validator(lista, item) {
       pal = false;
     }
   });
+  //vahtii tyyppien määriä verraten sovittuihin tag-määriin / kysymys
+  if (item.type === 1) {
+    let count = 0; 
+    lista.forEach((element) => {
+      if (element.type === 1) {
+        count++; 
+      }
+    })
+    if (count > 0) {
+      pal = false; 
+    }
+  }
 
-  //vahdi tyyppimääriä type = 1
-  //KESKEN
+  if (item.type === 2) {
+    let count = 0; 
+    lista.forEach((element) => {
+      if (element.type === 2) {
+        count++; 
+      }
+    })
+    if (count >= 2) {
+      pal = false; 
+    }
 
-  
+  }
+  if (item.type === 3) {
+    var count = 0; 
+    lista.forEach((element) => {
+      if (element.type === 3) {
+        count++; 
+      }
+    })
+    if (count >= 1) {
+      pal = false; 
+    }
 
-
-
-
-
+  }
+  if (item.type === 4) {
+    let count = 0; 
+    lista.forEach((element) => {
+      if (element.type === 4) {
+        count++; 
+      }
+    })
+    if (count >= 2) {
+      pal = false; 
+    }
+  }
+  //pätevyyksien määrää ei vahdita, vain duplikaatteja. 
   return pal;
 }
