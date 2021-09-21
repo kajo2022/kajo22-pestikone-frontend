@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import BotImage from "./../assets/images/kajo_bot.png";
 import { css } from 'aphrodite';
 import Styles from '../assets/styles/Style';
@@ -7,13 +7,21 @@ import Styles from '../assets/styles/Style';
 
 
 const BotTalk = (props) => {
-    const tyyli = (props.onko ? css(Styles.position) : css(Styles.fadeInUp))
+    const refit = useRef(null)
+    const tyyli = (props.onko ? css(Styles.position) : css(Styles.fadeInLeft))
+
     const listaus = require("../botalk.json");
     const id = props.id;
     const kyssari = listaus[id];
 
+    useEffect(() => {
+      if (!props.onko) {
+        refit.current.scrollIntoView({behavior: 'smooth', block: 'start'})
+      }
+    }, [props.onko])
+
     return (
-      <div className={tyyli}>
+      <div className={tyyli} ref={refit}>
         <img className={css(Styles.avatar)} src={BotImage} alt="Kajo-Bot" />
         <div className={css(Styles.userTalker)}> {kyssari.desc} </div>
       </div>

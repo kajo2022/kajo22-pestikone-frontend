@@ -1,5 +1,5 @@
 import { StyleSheet } from "aphrodite";
-import { fadeInRight, fadeInUp } from 'react-animations';
+import { fadeInLeft, fadeInRight, fadeInUp } from 'react-animations';
 
 const Styles = StyleSheet.create({
     app : {
@@ -122,6 +122,12 @@ const Styles = StyleSheet.create({
       },
       fadeInRight: {
         animationName: fadeInRight, 
+        animationDuration: '2s',
+        display: 'flex',
+        flexWrap: 'wrap'
+      },
+      fadeInLeft: {
+        animationName: fadeInLeft, 
         animationDuration: '2s',
         display: 'flex',
         flexWrap: 'wrap'
