@@ -47,6 +47,17 @@ const Styles = StyleSheet.create({
         maxWidth: '70%',
         height: 'max-content',
     },
+    userTalker2: {
+        backgroundColor: 'fuchsia',
+        borderRadius: '25px',
+        color: 'black',
+        margin: '10px',
+        padding: '10px',
+        width: 'max-content',
+        display: 'flex',
+        maxWidth: '70%',
+        height: 'max-content',
+    },
     talker: {
         ':hover': {
             backgroundColor: 'aqua',
