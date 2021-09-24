@@ -69,6 +69,9 @@ const Styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row-reverse',
     },
+    right: {
+        alignItems: 'center'
+    },
     
     row: {
         display: 'flex',
@@ -78,6 +81,7 @@ const Styles = StyleSheet.create({
         display: 'flex'
     },
     column: {
+        display: 'flex',
         flexDirection: 'column',
     },
     

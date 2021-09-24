@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import UserTalker from "./UserTalker";
 import BotTalk from "./BotTalk";
-import Valinta from "./Valinta";
+//import Valinta from "./Valinta";
 import Styles from "../assets/styles/Style";
 import { css } from "aphrodite";
 import { validator } from "../services/Validator";
@@ -133,7 +133,7 @@ export default function Frame() {
     <div>
       <h1 className={css(Styles.textCent)}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
       <div className={css(Styles.container)}>
-      <div className={css(Styles.column)}>
+      <div className={css(Styles.column, Styles.right)}>
         <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
           i18n.changeLanguage('fi');
           document.documentElement.lang = 'fi';
@@ -148,6 +148,9 @@ export default function Frame() {
           i18n.changeLanguage('se')
           document.documentElement.lang = 'se'
        }}>Svenska</button>
+       <button className={css(Styles.userTalker, Styles.talker)} onClick={clear}>
+          {t("Tyhjennä valinnat")}
+        </button>
       </div>
       <div className={css(Styles.column)}>
       <div className={css(Styles.frame)}>
@@ -176,13 +179,6 @@ export default function Frame() {
         {ehto.mita2 ? <Frag3 /> : null}
         {ehto.milloin ? <Frag4 /> : null}
         {ehto.osaan2 ? <Frag5 /> : null}
-      </div>
-          <div className={css(Styles.frame2)}>
-        <button className={css(Styles.btn)} onClick={clear}>
-          {t("Tyhjennä")}
-        </button>
-        {valinta.length > 0 ? <Valinta lista={valinta} /> : null}
-
       </div>
       </div>
       </div>
