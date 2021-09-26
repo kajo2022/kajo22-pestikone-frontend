@@ -8,7 +8,7 @@ export default function UserTalk(props) {
     const adder = props.func;
     return (
         lista.map((item) => (
-            <SingleLine item={item} valinta={valinta} func={adder} onko={props.onko}/>
+            <SingleLine key={item.id} item={item} valinta={valinta} func={adder} onko={props.onko}/>
         ))
     )
     

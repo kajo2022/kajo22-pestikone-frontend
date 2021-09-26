@@ -28,17 +28,24 @@ export default function Frame() {
     patev: false
   };
   const [ehto, setEhto] = useState(initState);
+  const [mahis, setMahis] = useState(false); 
 
   const [jasen, setJasen] = useState("");
   const [valinta, setValinta] = useState([]);
 
+
+  const rex = new RegExp('^[0-9]+$')
   const handleChange = (e) => {
     e.preventDefault();
-    setJasen(e.target.value);
+    if (rex.test(e.target.value)) {
+      setJasen(e.target.value);
+      setMahis(true)
+    }
+    
   };
 
   const lisaa = (item) => {
-    console.log(item.id);
+    //console.log(item.id);
     if (validator(valinta, item)) {
       setValinta([...valinta, item]);
     }
@@ -129,6 +136,15 @@ export default function Frame() {
     );
   };
 
+  const sendit = () => {
+    
+    var tags = valinta.map((item) => item.id); 
+    console.log(tags); 
+    var data = {"jnro": jasen, "tags": tags}; 
+    console.log(JSON.stringify(data));
+    
+  }
+
   return (
     <div>
       <h1 className={css(Styles.textCent)}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
@@ -151,6 +167,9 @@ export default function Frame() {
        <button className={css(Styles.userTalker, Styles.talker)} onClick={clear}>
           {t("Tyhjennä valinnat")}
         </button>
+        <button className={css(Styles.userTalker, Styles.talker)} onClick={sendit}>
+          {t("Lähetä valinnat")}
+        </button>
       </div>
       <div className={css(Styles.column)}>
       <div className={css(Styles.frame)}>
@@ -169,7 +188,7 @@ export default function Frame() {
               value={jasen}
               onChange={(e) => handleChange(e)}
             />
-            <button className={css(Styles.btn)} onClick={confirmer}>
+            <button className={css(Styles.btn)} onClick={confirmer} disabled={!mahis}>
               {t("OK")}
             </button>
           </div>
