@@ -137,12 +137,26 @@ export default function Frame() {
   };
 
   const sendit = () => {
-    
     var tags = valinta.map((item) => item.id); 
     console.log(tags); 
     var data = {"jnro": jasen, "tags": tags}; 
     console.log(JSON.stringify(data));
-    
+/*
+    var target = 'http://localhost:5000/reception'
+      fetch(target, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch ((error) => {
+      console.log(error)
+      })
+*/
   }
 
   return (
