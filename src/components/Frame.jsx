@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import UserTalker from "./UserTalker";
 import BotTalk from "./BotTalk";
-//import Valinta from "./Valinta";
 import Styles from "../assets/styles/Style";
 import { css } from "aphrodite";
 import { validator } from "../services/Validator";
+import ExitComp from "./ExitComp";
 
 import "../services/i18n";
 import { useTranslation } from "react-i18next";
@@ -132,6 +132,7 @@ export default function Frame() {
       <div>
         <BotTalk id={6} onko={ehto.patev}/> 
         <UserTalker lista={lista5.default} func={lisaa} onko={ehto.patev} valinta={valinta}/>
+        <ExitComp id={7} sender={sendit} clear={clear} />
       </div>
     );
   };
@@ -158,6 +159,7 @@ export default function Frame() {
       })
 */
   }
+  
 
   return (
     <div>
