@@ -163,13 +163,14 @@ export default function Frame() {
 
   return (
     <div>
-      <h1 className={css(Styles.textCent)}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
       <div className={css(Styles.container)}>
-      <div className={css(Styles.column, Styles.right)}>
-        <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
+
+      <div className={css(Styles.frame)}>
+      <h1 className={css(Styles.textCent)}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
+        <div className={css(Styles.row, Styles.outer) }>
+      <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
           i18n.changeLanguage('fi');
           document.documentElement.lang = 'fi';
-          
         }
         }>Suomi</button>
         <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
@@ -180,15 +181,60 @@ export default function Frame() {
           i18n.changeLanguage('se')
           document.documentElement.lang = 'se'
        }}>Svenska</button>
-       <button className={css(Styles.userTalker, Styles.talker)} onClick={clear}>
-          {t("Tyhjennä valinnat")}
-        </button>
-        <button className={css(Styles.userTalker, Styles.talker)} onClick={sendit}>
-          {t("Lähetä valinnat")}
-        </button>
+        </div>
+        <BotTalk id={0} />
+        <BotTalk id={1} />
+        <div className={css(Styles.outer, Styles.fadeInUp)}>
+          <div className={css(Styles.row)}>
+            <label for="jasennro" className={css(Styles.label)}>
+              {t("Jäsennumero")}
+            </label>
+            <input
+              className={css(Styles.input)}
+              type="text"
+              name="jasennro"
+              id="jasennro"
+              value={jasen}
+              onChange={(e) => handleChange(e)}
+            />
+            <button className={css(Styles.btn)} onClick={confirmer} disabled={!mahis}>
+              {t("OK")}
+            </button>
+          </div>
+        </div>
+        {ehto.jnro ? <Frag1 /> : null}
+        {ehto.paikka ? <Frag2 /> : null}
+        {ehto.mita2 ? <Frag3 /> : null}
+        {ehto.milloin ? <Frag4 /> : null}
+        {ehto.osaan2 ? <Frag5 /> : null}
       </div>
+      </div>
+      
+    </div>
+  );
+}
+
+/**
+ * <div>
+      <div className={css(Styles.container)}>
       <div className={css(Styles.column)}>
       <div className={css(Styles.frame)}>
+      <h1 className={css(Styles.textCent)}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
+        <div className={css(Styles.row, Styles.outer) }>
+      <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
+          i18n.changeLanguage('fi');
+          document.documentElement.lang = 'fi';
+        }
+        }>Suomi</button>
+        <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
+          i18n.changeLanguage('en')
+          document.documentElement.lang = 'en'
+          }}>English</button>
+        <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
+          i18n.changeLanguage('se')
+          document.documentElement.lang = 'se'
+       }}>Svenska</button>
+        </div>
         <BotTalk id={0} />
         <BotTalk id={1} />
         <div className={css(Styles.outer, Styles.fadeInUp)}>
@@ -219,7 +265,8 @@ export default function Frame() {
       </div>
       
     </div>
-  );
-}
+ * 
+ * 
+ */
 
 

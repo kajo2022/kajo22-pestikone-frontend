@@ -1,40 +1,50 @@
 import { StyleSheet } from "aphrodite";
 import { fadeInLeft, fadeInRight, fadeInUp } from 'react-animations';
 
+const screenSize = {
+    small: '@media only screen and (max-width: 480px)',
+    middle: '@media only screen and (max-width: 768px)',
+    //medium: '@media only screen and (max-width: 1024px)',
+    large: '@media only screen and (min-width: 1200px)'
+}
+
 const Styles = StyleSheet.create({
     app : {
         backgroundColor: 'black',
         height: '100vh',
+        //width: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         color: 'aliceblue',
       },
     frame: {
-        height: '70vh',
-        minWidth: '70vh',
-        maxWidth: '90vh',
+        //height: '70vh',
+        //minWidth: '70vh',
+        //maxWidth: '90vh',
+         [screenSize.small]: {
+            maxWidth: '100vw',
+            minHeight: '100vh',
+            backgroundColor: 'blueviolet',
+        },
+        [screenSize.middle]: {
+            minHeight: '100vh',
+            minWidth: '90vw',
+            backgroundColor: 'green'
+        },
+        [screenSize.large]: {
+            minHeight: '70vh',
+            maxWidth: '90vw',
+            backgroundColor: 'blue'
+        },
+        //maxHeight: '90vh',
         borderRadius: '25px',
         marginRight: 'auto',
         marginLeft: 'auto',
-        backgroundColor: 'blueviolet',
+        //backgroundColor: 'blueviolet',
         color: 'aliceblue',
         overflowY: 'auto',
         overflowX: 'hidden'
-    },
-    frame2: {
-        maxHeight: '30vh',
-        minHeight: '10vh',
-        minWidth: '70vh',
-        maxWidth: '90vh',
-        borderRadius: '25px',
-        marginRight: 'auto',
-        marginLeft: 'auto',
-        marginTop: '10px',
-        backgroundColor: 'blueviolet',
-        color: 'aliceblue',
-        padding: '10px',
-        display: 'flex'
     },
     userTalker: {
         backgroundColor: 'yellow',
@@ -75,10 +85,11 @@ const Styles = StyleSheet.create({
     
     row: {
         display: 'flex',
-        flexWrap: 'wrap',
+        //flexWrap: 'wrap',
+        flexDirection: 'row'
     },
     container: {
-        display: 'flex'
+        display: 'flex',
     },
     column: {
         display: 'flex',
@@ -133,7 +144,9 @@ const Styles = StyleSheet.create({
         alignItems: "center",
       },
       textCent: {
-          textAlign: 'center'
+          textAlign: 'center',
+          wordWrap: 'normal'
+        
       },
       fadeInRight: {
         animationName: fadeInRight, 
