@@ -9,7 +9,7 @@ const ExitComp = (props) => {
 
     const dialog = [
         {
-            desc: "Tarkista vielä valintasi."
+            desc: "Tarkista vielä valintasi. Tarkista myös jäsennumerosi."
         },
         { 
             desc: "Jos haluat aloittaa alusta, paina 'Tyhjennä valinnat'"

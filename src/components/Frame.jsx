@@ -34,14 +34,22 @@ export default function Frame() {
   const [valinta, setValinta] = useState([]);
 
 
-  const rex = new RegExp('^[0-9]+$')
-  //const rex1 = new RegExp('^[0-9]+$|^$')
+  //const rex = new RegExp('^[0-9]+$') //tarkistaa vain numeroita
+  //const rex1 = new RegExp('^[0-9]+$|^$') //tarkistaa tyhjiä ja numeroita, mutta mahdollistaa tyhjän jättämisen.
   const handleChange = (e) => {
     e.preventDefault();
-    if (rex.test(e.target.value)) {
+    if(e.target.validity.valid) {
       setJasen(e.target.value);
       setMahis(true)
+    } else if (jasen.length === 0) {
+      clear(); 
     }
+    //const numb = (e.target.validity.valid) ? e.target.value : jasen
+    //if (rex1.test(e.target.value)) {
+      //
+      
+      
+    //}
     
   };
 
@@ -134,16 +142,26 @@ export default function Frame() {
       <div>
         <BotTalk id={6} onko={ehto.patev}/> 
         <UserTalker lista={lista5.default} func={lisaa} onko={ehto.patev} valinta={valinta}/>
-        <ExitComp id={7} sender={sendit} clear={clear} />
+        <ExitComp id={7} sender={checkit} clear={clear} />
       </div>
     );
   };
 
+  const checkit = () => {
+    var r = window.confirm("Olethan nyt varma"); 
+    if(r===true) {
+      sendit(); 
+    }
+
+  }
+
   const sendit = () => {
     var tags = valinta.map((item) => item.id); 
-    console.log(tags); 
-    var data = {"jnro": jasen, "tags": tags}; 
+    console.log(tags);
+    let numeroitu = parseInt(jasen);  
+    var data = {"jnro": numeroitu, "tags": tags}; 
     console.log(JSON.stringify(data));
+    
 /*
     var target = 'http://localhost:5000/reception'
       fetch(target, {
@@ -194,8 +212,10 @@ export default function Frame() {
             <input
               className={css(Styles.input)}
               type="text"
+              pattern="[0-9]*"
               name="jasennro"
               id="jasennro"
+              required="true"
               value={jasen}
               onChange={(e) => handleChange(e)}
             />
