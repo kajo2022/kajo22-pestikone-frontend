@@ -3,9 +3,9 @@ import { fadeInLeft, fadeInRight, fadeInUp } from 'react-animations';
 
 const screenSize = {
     small: '@media only screen and (max-width: 480px)',
-    middle: '@media only screen and (max-width: 768px)',
-    //medium: '@media only screen and (max-width: 1024px)',
-    large: '@media only screen and (min-width: 1200px)'
+    middle: '@media only screen and (min-width: 768px)',
+    medium: '@media only screen and (min-width: 1024px)',
+    //large: '@media only screen and (min-width: 1200px)'
 }
 
 const Styles = StyleSheet.create({
@@ -19,32 +19,34 @@ const Styles = StyleSheet.create({
         color: 'aliceblue',
       },
     frame: {
-        //height: '70vh',
-        //minWidth: '70vh',
-        //maxWidth: '90vh',
-         [screenSize.small]: {
-            maxWidth: '100vw',
-            minHeight: '100vh',
-            backgroundColor: 'blueviolet',
-        },
-        [screenSize.middle]: {
-            minHeight: '100vh',
-            minWidth: '90vw',
-            backgroundColor: 'green'
-        },
-        [screenSize.large]: {
-            minHeight: '70vh',
-            maxWidth: '90vw',
-            backgroundColor: 'blue'
-        },
         //maxHeight: '90vh',
         borderRadius: '25px',
         marginRight: 'auto',
         marginLeft: 'auto',
-        //backgroundColor: 'blueviolet',
+        backgroundColor: 'blueviolet',
         color: 'aliceblue',
+        height: '100vh',
+        maxWidth: '100vw',
         overflowY: 'auto',
-        overflowX: 'hidden'
+        overflowX: 'hidden',
+        //minWidth: '70vh',
+        //maxWidth: '90vh',
+        
+        [screenSize.middle]: {
+            maxHeight: '95vh',
+            minHeight: '70vh',
+            maxWidth: '90vw',
+            //backgroundColor: 'green'
+        },
+        
+        [screenSize.medium]: {
+            maxHeight: '95vh',
+            maxWidth: '90vw',
+            //backgroundColor: 'blue'
+        },
+        
+        
+
     },
     userTalker: {
         backgroundColor: 'yellow',
@@ -85,7 +87,7 @@ const Styles = StyleSheet.create({
     
     row: {
         display: 'flex',
-        //flexWrap: 'wrap',
+        flexWrap: 'wrap',
         flexDirection: 'row'
     },
     container: {
@@ -95,12 +97,19 @@ const Styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
     },
-    
+    //avatar small in mobile
     avatar: {
-        maxWidth: '70px',
-        maxHeight: '70px',
+        maxWidth: '30px',
+        maxHeight: '30px',
         margin: '10px',
-        borderRadius: '20px',
+        borderRadius: '10px',
+        //normal for anything else
+        [screenSize.middle]: {
+            maxWidth: '70px',
+            maxHeight: '70px',
+            margin: '10px',
+            borderRadius: '20px',
+        }
     },
     btn: {
         backgroundColor: 'yellow',
@@ -142,6 +151,7 @@ const Styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        paddingBottom: '5px'
       },
       textCent: {
           textAlign: 'center',
