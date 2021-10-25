@@ -1,40 +1,52 @@
 import { StyleSheet } from "aphrodite";
 import { fadeInLeft, fadeInRight, fadeInUp } from 'react-animations';
 
+const screenSize = {
+    small: '@media only screen and (max-width: 480px)',
+    middle: '@media only screen and (min-width: 768px)',
+    medium: '@media only screen and (min-width: 1024px)',
+    //large: '@media only screen and (min-width: 1200px)'
+}
+
 const Styles = StyleSheet.create({
     app : {
         backgroundColor: 'black',
         height: '100vh',
+        //width: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         color: 'aliceblue',
       },
     frame: {
-        height: '70vh',
-        minWidth: '70vh',
-        maxWidth: '90vh',
+        //maxHeight: '90vh',
         borderRadius: '25px',
         marginRight: 'auto',
         marginLeft: 'auto',
         backgroundColor: 'blueviolet',
         color: 'aliceblue',
+        height: '100vh',
+        maxWidth: '100vw',
         overflowY: 'auto',
-        overflowX: 'hidden'
-    },
-    frame2: {
-        maxHeight: '30vh',
-        minHeight: '10vh',
-        minWidth: '70vh',
-        maxWidth: '90vh',
-        borderRadius: '25px',
-        marginRight: 'auto',
-        marginLeft: 'auto',
-        marginTop: '10px',
-        backgroundColor: 'blueviolet',
-        color: 'aliceblue',
-        padding: '10px',
-        display: 'flex'
+        overflowX: 'hidden',
+        //minWidth: '70vh',
+        //maxWidth: '90vh',
+        
+        [screenSize.middle]: {
+            maxHeight: '95vh',
+            minHeight: '70vh',
+            maxWidth: '90vw',
+            //backgroundColor: 'green'
+        },
+        
+        [screenSize.medium]: {
+            maxHeight: '95vh',
+            maxWidth: '90vw',
+            //backgroundColor: 'blue'
+        },
+        
+        
+
     },
     userTalker: {
         backgroundColor: 'yellow',
@@ -76,20 +88,28 @@ const Styles = StyleSheet.create({
     row: {
         display: 'flex',
         flexWrap: 'wrap',
+        flexDirection: 'row'
     },
     container: {
-        display: 'flex'
+        display: 'flex',
     },
     column: {
         display: 'flex',
         flexDirection: 'column',
     },
-    
+    //avatar small in mobile
     avatar: {
-        maxWidth: '70px',
-        maxHeight: '70px',
+        maxWidth: '30px',
+        maxHeight: '30px',
         margin: '10px',
-        borderRadius: '20px',
+        borderRadius: '10px',
+        //normal for anything else
+        [screenSize.middle]: {
+            maxWidth: '70px',
+            maxHeight: '70px',
+            margin: '10px',
+            borderRadius: '20px',
+        }
     },
     btn: {
         backgroundColor: 'yellow',
@@ -131,9 +151,12 @@ const Styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        paddingBottom: '5px'
       },
       textCent: {
-          textAlign: 'center'
+          textAlign: 'center',
+          wordWrap: 'normal'
+        
       },
       fadeInRight: {
         animationName: fadeInRight, 
