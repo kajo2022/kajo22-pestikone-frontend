@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import UserTalker from "./UserTalker";
 import BotTalk from "./BotTalk";
-//import Valinta from "./Valinta";
 import Styles from "../assets/styles/Style";
 import { css } from "aphrodite";
 import { validator } from "../services/Validator";
+import ExitComp from "./ExitComp";
 
 import "../services/i18n";
 import { useTranslation } from "react-i18next";
@@ -34,13 +34,22 @@ export default function Frame() {
   const [valinta, setValinta] = useState([]);
 
 
-  const rex = new RegExp('^[0-9]+$')
+  //const rex = new RegExp('^[0-9]+$') //tarkistaa vain numeroita
+  //const rex1 = new RegExp('^[0-9]+$|^$') //tarkistaa tyhjiä ja numeroita, mutta mahdollistaa tyhjän jättämisen.
   const handleChange = (e) => {
     e.preventDefault();
-    if (rex.test(e.target.value)) {
+    if(e.target.validity.valid) {
       setJasen(e.target.value);
       setMahis(true)
+    } else if (jasen.length === 0) {
+      clear(); 
     }
+    //const numb = (e.target.validity.valid) ? e.target.value : jasen
+    //if (rex1.test(e.target.value)) {
+      //
+      
+      
+    //}
     
   };
 
@@ -86,6 +95,7 @@ export default function Frame() {
         setEhto({ ...ehto, patev: true });
         //tappaa fadin
       }
+      // eslint-disable-next-line
   }, [valinta]);
 
   const confirmer = (e) => {
@@ -132,28 +142,55 @@ export default function Frame() {
       <div>
         <BotTalk id={6} onko={ehto.patev}/> 
         <UserTalker lista={lista5.default} func={lisaa} onko={ehto.patev} valinta={valinta}/>
+        <ExitComp id={7} sender={checkit} clear={clear} />
       </div>
     );
   };
 
+  const checkit = () => {
+    var r = window.confirm("Olethan nyt varma"); 
+    if(r===true) {
+      sendit(); 
+    }
+
+  }
+
   const sendit = () => {
-    
     var tags = valinta.map((item) => item.id); 
-    console.log(tags); 
-    var data = {"jnro": jasen, "tags": tags}; 
+    console.log(tags);
+    let numeroitu = parseInt(jasen);  
+    var data = {"jnro": numeroitu, "tags": tags}; 
     console.log(JSON.stringify(data));
     
+/*
+    var target = 'http://localhost:5000/reception'
+      fetch(target, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch ((error) => {
+      console.log(error)
+      })
+*/
   }
+  
 
   return (
     <div>
-      <h1 className={css(Styles.textCent)}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
       <div className={css(Styles.container)}>
-      <div className={css(Styles.column, Styles.right)}>
-        <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
+
+      <div className={css(Styles.frame)}>
+      <h1 className={css(Styles.textCent)}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
+        <div className={css(Styles.row, Styles.outer) }>
+      <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
           i18n.changeLanguage('fi');
           document.documentElement.lang = 'fi';
-          
         }
         }>Suomi</button>
         <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
@@ -164,15 +201,7 @@ export default function Frame() {
           i18n.changeLanguage('se')
           document.documentElement.lang = 'se'
        }}>Svenska</button>
-       <button className={css(Styles.userTalker, Styles.talker)} onClick={clear}>
-          {t("Tyhjennä valinnat")}
-        </button>
-        <button className={css(Styles.userTalker, Styles.talker)} onClick={sendit}>
-          {t("Lähetä valinnat")}
-        </button>
-      </div>
-      <div className={css(Styles.column)}>
-      <div className={css(Styles.frame)}>
+        </div>
         <BotTalk id={0} />
         <BotTalk id={1} />
         <div className={css(Styles.outer, Styles.fadeInUp)}>
@@ -183,8 +212,10 @@ export default function Frame() {
             <input
               className={css(Styles.input)}
               type="text"
+              pattern="[0-9]*"
               name="jasennro"
               id="jasennro"
+              required="true"
               value={jasen}
               onChange={(e) => handleChange(e)}
             />
@@ -200,10 +231,11 @@ export default function Frame() {
         {ehto.osaan2 ? <Frag5 /> : null}
       </div>
       </div>
-      </div>
       
     </div>
   );
 }
+
+
 
 
