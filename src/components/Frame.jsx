@@ -107,43 +107,43 @@ export default function Frame() {
 
   const Frag1 = () => {
     return (
-      <div>
+      <>
         <BotTalk id={2} onko={ehto.paikka}/> 
       <UserTalker lista={lista1.default} func={lisaa} onko={ehto.paikka} valinta={valinta}/>
-      </div>
+      </>
     );
   };
   const Frag2 = () => {
     return (
-      <div>
+      <>
         <BotTalk id={3} onko={ehto.mita}/> 
       <UserTalker lista={lista2.default} func={lisaa} onko={ehto.mita} valinta={valinta}/>
-      </div>
+      </>
     );
   };
   const Frag3 = () => {
     return (
-      <div>
+      <>
         <BotTalk id={4} onko={ehto.milloin}/> 
         <UserTalker lista={lista3.default} func={lisaa} onko={ehto.milloin} valinta={valinta}/>
-      </div>
+      </>
     );
   };
   const Frag4 = () => {
     return (
-      <div>
+      <>
         <BotTalk id={5} onko={ehto.osaan}/> 
         <UserTalker lista={lista4.default} func={lisaa} onko={ehto.osaan} valinta={valinta}/>
-      </div>
+      </>
     );
   };
   const Frag5 = () => {
     return (
-      <div>
+      <>
         <BotTalk id={6} onko={ehto.patev}/> 
         <UserTalker lista={lista5.default} func={lisaa} onko={ehto.patev} valinta={valinta}/>
         <ExitComp id={7} sender={checkit} clear={clear} />
-      </div>
+      </>
     );
   };
 
