@@ -28,30 +28,21 @@ export default function Frame() {
     patev: false
   };
   const [ehto, setEhto] = useState(initState);
-  const [mahis, setMahis] = useState(false); 
 
   const [jasen, setJasen] = useState("");
   const [valinta, setValinta] = useState([]);
 
 
-  //const rex = new RegExp('^[0-9]+$') //tarkistaa vain numeroita
-  //const rex1 = new RegExp('^[0-9]+$|^$') //tarkistaa tyhjiä ja numeroita, mutta mahdollistaa tyhjän jättämisen.
-  const handleChange = (e) => {
-    e.preventDefault();
-    if(e.target.validity.valid) {
-      setJasen(e.target.value);
-      setMahis(true)
-    } else if (jasen.length === 0) {
-      clear(); 
-    }
-    //const numb = (e.target.validity.valid) ? e.target.value : jasen
-    //if (rex1.test(e.target.value)) {
-      //
-      
-      
-    //}
-    
-  };
+  useEffect(() => {
+    //haetaan parametri osoitteesta
+    const query = window.location.search;
+    //console.log(query); 
+    const urlId = new URLSearchParams(query); 
+    //console.log(urlId);
+    let anid = urlId.get('uuid'); 
+    //console.log(anid); 
+    setJasen(anid); 
+  }, []); 
 
   const lisaa = (item) => {
     //console.log(item.id);
@@ -158,8 +149,8 @@ export default function Frame() {
   const sendit = () => {
     var tags = valinta.map((item) => item.id); 
     console.log(tags);
-    let numeroitu = parseInt(jasen);  
-    var data = {"jnro": numeroitu, "tags": tags}; 
+    //let numeroitu = parseInt(jasen);  
+    var data = {"jnro": jasen, "tags": tags}; 
     console.log(JSON.stringify(data));
     
 /*
@@ -188,42 +179,29 @@ export default function Frame() {
       <div className={css(Styles.frame)}>
       <h1 className={css(Styles.textCent)}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
         <div className={css(Styles.row, Styles.outer) }>
-      <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
+      <button className={css(Styles.userTalker, Styles.talker)} onClick={() => {
           i18n.changeLanguage('fi');
           document.documentElement.lang = 'fi';
         }
         }>Suomi</button>
-        <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
+        <button className={css(Styles.userTalker, Styles.talker)} onClick={() => {
           i18n.changeLanguage('en')
           document.documentElement.lang = 'en'
           }}>English</button>
-        <button class={css(Styles.userTalker, Styles.talker)} onClick={() => {
+        <button className={css(Styles.userTalker, Styles.talker)} onClick={() => {
           i18n.changeLanguage('se')
           document.documentElement.lang = 'se'
        }}>Svenska</button>
         </div>
         <BotTalk id={0} />
         <BotTalk id={1} />
-        <div className={css(Styles.outer, Styles.fadeInUp)}>
-          <div className={css(Styles.row)}>
-            <label for="jasennro" className={css(Styles.label)}>
-              {t("Jäsennumero")}
-            </label>
-            <input
-              className={css(Styles.input)}
-              type="text"
-              pattern="[0-9]*"
-              name="jasennro"
-              id="jasennro"
-              required="true"
-              value={jasen}
-              onChange={(e) => handleChange(e)}
-            />
-            <button className={css(Styles.btn)} onClick={confirmer} disabled={!mahis}>
+        <div className={css(Styles.outer)}>
+          <button className={css(Styles.btn)} onClick={confirmer}>
               {t("OK")}
             </button>
-          </div>
         </div>
+        
+        
         {ehto.jnro ? <Frag1 /> : null}
         {ehto.paikka ? <Frag2 /> : null}
         {ehto.mita2 ? <Frag3 /> : null}
@@ -235,6 +213,8 @@ export default function Frame() {
     </div>
   );
 }
+
+
 
 
 
