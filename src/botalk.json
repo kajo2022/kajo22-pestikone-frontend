@@ -1,16 +1,16 @@
 [{
     "id": 1,
-    "desc": "Hei, Tervetuloa Kajon pestikoneeseen. Täällä voit valita avainsanoja, joiden perusteella pyrimme jakamaan osallistujat pesteihin",
+    "desc": "Hei, Tervetuloa henkilökohtaiseen Kajon pestikoneeseesi. Täällä voit valita avainsanoja, joiden perusteella pyrimme jakamaan osallistujat pesteihin",
     "type": "intro"
 },
 {
     "id": 2,
-    "desc": "Ensiksi tarvitsemme jäsennumerosi, jonka perusteella valinnat kohdennetaan oikeaan henkilöön.",
+    "desc": "Valinnat kohdennetaan oikeaan henkilöön perustuen automaattisesti luotuun tunnisteeseen, joka yhdistetään PartioIDn tietoihin tietosuojakäytäntöjä noudattaen.",
     "type": "intro"
 },
 {
     "id": 3,
-    "desc": "Kiitos. Aloittakaamme. Missä haluaisit tehdä pestisi Kajolla?",
+    "desc": "Aloittakaamme. Missä haluaisit tehdä pestisi Kajolla?",
     "type": "where"
 },
 {
