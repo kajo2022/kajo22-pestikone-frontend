@@ -150,7 +150,7 @@ export default function Frame() {
     var tags = valinta.map((item) => item.id); 
     console.log(tags);
     //let numeroitu = parseInt(jasen);  
-    var data = {"jnro": jasen, "tags": tags}; 
+    var data = {id: jasen, tags: tags}; 
     console.log(JSON.stringify(data));
     
 /*
