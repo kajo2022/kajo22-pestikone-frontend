@@ -133,7 +133,7 @@ export default function Frame() {
       <>
         <BotTalk id={6} onko={ehto.patev}/> 
         <UserTalker lista={lista5.default} func={lisaa} onko={ehto.patev} valinta={valinta}/>
-        <ExitComp id={7} sender={checkit} clear={clear} />
+        <ExitComp id={7} sender={checkit} clear={clear} onko={ehto.patev}/>
       </>
     );
   };

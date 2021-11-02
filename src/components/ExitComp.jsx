@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import BotImage from "./../assets/images/kajo_bot.png";
 import { css } from 'aphrodite';
 import Styles from '../assets/styles/Style';
 
-const ExitComp = (props) => {
 
-    const tyyli = css(Styles.fadeInLeft);
+const ExitComp = (props) => {
+    
+
+    const tyyli = (props.onko ? css(Styles.position) : css(Styles.fadeInLeft))
+
 
     const dialog = [
         {
