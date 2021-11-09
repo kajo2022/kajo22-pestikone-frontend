@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import BotImage from "./../assets/images/kajo_bot.png";
 import { css } from 'aphrodite';
 import Styles from '../assets/styles/Style';

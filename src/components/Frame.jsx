@@ -146,12 +146,32 @@ export default function Frame() {
 
   }
 
-  const sendit = () => {
+  const sendit = async () => {
     var tags = valinta.map((item) => item.id); 
     console.log(tags);
     //let numeroitu = parseInt(jasen);  
-    var data = {id: jasen, tags: tags}; 
+    var data = {jnro: jasen, tags: tags}; 
     console.log(JSON.stringify(data));
+    //var target = 'http://localhost:5000/reception';
+    var target = 'http://localhost:7071/api/inserter';
+    try {
+      const response = await fetch(target, {
+        method: 'POST',
+        //mode: 'cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      })
+      const resData = await response.json();
+      let x = parseInt(resData.resp); 
+      if (x !== 0) {
+        window.alert('Kajo2022 kiittäää. Valintasi on tallennettu. Voit sulkea pestikoneen.');
+      } else {
+        window.alert('Jokin meni vikaan.')
+      }
+      //console.log(resData.resp); 
+    } catch (error) {
+      console.log(error); 
+    }
     
 /*
     var target = 'http://localhost:5000/reception'
@@ -163,6 +183,7 @@ export default function Frame() {
       })
       .then(res => res.json())
       .then(data => {
+
         console.log('Success:', data);
       })
       .catch ((error) => {
@@ -196,7 +217,7 @@ export default function Frame() {
         <BotTalk id={0} />
         <BotTalk id={1} />
         <div className={css(Styles.outer)}>
-          <button className={css(Styles.btn)} onClick={confirmer}>
+          <button className={css(Styles.userTalker, Styles.talker)} onClick={confirmer}>
               {t("OK")}
             </button>
         </div>
