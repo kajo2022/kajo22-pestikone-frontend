@@ -152,6 +152,7 @@ export default function Frame() {
     //let numeroitu = parseInt(jasen);  
     var data = {jnro: jasen, tags: tags}; 
     console.log(JSON.stringify(data));
+/*    
     //var target = 'http://localhost:5000/reception';
     var target = 'http://localhost:7071/api/inserter';
     try {
@@ -173,7 +174,7 @@ export default function Frame() {
       console.log(error); 
     }
     
-/*
+
     var target = 'http://localhost:5000/reception'
       fetch(target, {
         method: 'POST',
