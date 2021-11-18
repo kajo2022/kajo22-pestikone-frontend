@@ -1,8 +1,7 @@
-import i18n from './services/i18n'
 
-const Tags3 = [{ "id": 26, "desc": i18n.t("Päivätyö"), "type": 3 },
-    { "id": 27, "desc": i18n.t("Iltahommia"), "type": 3 },
-    { "id": 28, "desc": i18n.t("Yötä myöten"), "type": 3 },
-    { "id": 29, "desc": i18n.t("Aina valmiina - ilman työvuoroja"), "type": 3 }]
+const Tags3 = [{ "id": 26, "desc": "Päivätyö", "type": 3 },
+    { "id": 27, "desc": "Iltahommia", "type": 3 },
+    { "id": 28, "desc": "Yötä myöten", "type": 3 },
+    { "id": 29, "desc": "Aina valmiina - ilman työvuoroja", "type": 3 }]
 
 export default Tags3;

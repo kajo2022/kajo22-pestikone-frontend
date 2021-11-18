@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Styles from '../assets/styles/Style';
 import { css } from 'aphrodite';
+import i18n from '../services/i18n'
+
 
 export default function SingleLine (props) {
     const item = props.item; 
@@ -36,7 +38,7 @@ export default function SingleLine (props) {
         <div className={bool ? (css(Styles.userTalker2, tyyli)): (css(Styles.userTalker, Styles.talker, tyyli))} 
         key={item.id} 
         onClick={(e) => ClickThis(e, item)}> 
-        {item.desc} 
+        {i18n.t(item.desc)} 
         </div>
         </div>
     )

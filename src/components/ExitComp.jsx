@@ -2,6 +2,7 @@ import React from 'react';
 import BotImage from "./../assets/images/kajo_bot.png";
 import { css } from 'aphrodite';
 import Styles from '../assets/styles/Style';
+import i18n from '../services/i18n'
 
 const ExitComp = (props) => {
 
@@ -9,13 +10,13 @@ const ExitComp = (props) => {
 
     const dialog = [
         {
-            desc: "Tarkista vielä valintasi. Tarkista myös jäsennumerosi."
+            desc: i18n.t("Tarkista vastauksesi.")
         },
         { 
-            desc: "Jos haluat aloittaa alusta, paina 'Tyhjennä valinnat'"
+            desc: i18n.t("Jos haluat aloittaa alusta, paina 'Tyhjennä valinnat'")
         },
         {
-            desc: "Jos olet valmis, paina 'Lähetä valinnat'"
+            desc: i18n.t("Jos olet valmis, paina 'Lähetä valinnat'")
         }
 
     ]
@@ -34,11 +35,11 @@ const ExitComp = (props) => {
         <div className={css(Styles.userTalker)}> {dialog[0].desc} </div>
         <div className={css(Styles.userTalker)}> {dialog[1].desc} </div>
         <button className={css(Styles.userTalker, Styles.talker)} onClick={clearer}>
-          {("Tyhjennä valinnat")}
+          {i18n.t("Tyhjennä")}
         </button>
         <div className={css(Styles.userTalker)}> {dialog[2].desc} </div>
         <button className={css(Styles.userTalker, Styles.talker)} onClick={sender}>
-          {("Lähetä valinnat")}
+          {i18n.t("Päätä kysely.")}
         </button>
         </div>
       </div>
