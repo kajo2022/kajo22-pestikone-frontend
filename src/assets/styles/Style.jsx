@@ -10,21 +10,21 @@ const screenSize = {
 
 const Styles = StyleSheet.create({
     app : {
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         height: '100vh',
         //width: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: 'aliceblue',
+        color: 'black',
       },
     frame: {
         //maxHeight: '90vh',
         borderRadius: '25px',
         marginRight: 'auto',
         marginLeft: 'auto',
-        backgroundColor: 'blueviolet',
-        color: 'aliceblue',
+        backgroundColor: 'white',
+        color: 'black',
         height: '100vh',
         maxWidth: '100vw',
         overflowY: 'auto',
@@ -49,7 +49,7 @@ const Styles = StyleSheet.create({
 
     },
     userTalker: {
-        backgroundColor: 'yellow',
+        backgroundColor: '#96E6E6',
         borderRadius: '25px',
         color: 'black',
         margin: '10px',
@@ -60,7 +60,7 @@ const Styles = StyleSheet.create({
         height: 'max-content',
     },
     userTalker2: {
-        backgroundColor: 'fuchsia',
+        backgroundColor: 'yellow',
         borderRadius: '25px',
         color: 'black',
         margin: '10px',
@@ -72,7 +72,7 @@ const Styles = StyleSheet.create({
     },
     talker: {
         ':hover': {
-            backgroundColor: 'aqua',
+            backgroundColor: '#5ad8d8',
             cursor: 'pointer',
         }
     },
@@ -111,8 +111,9 @@ const Styles = StyleSheet.create({
             borderRadius: '20px',
         }
     },
+    /*
     btn: {
-        backgroundColor: 'yellow',
+        backgroundColor: '#96E6E6',
         marginLeft: '10px',
         padding: '10px',
         borderRadius: '15px',
@@ -123,6 +124,7 @@ const Styles = StyleSheet.create({
         }
         
     },
+    */
     fadeInUp: {
         animationName: fadeInUp, 
         animationDuration: '3s',
@@ -133,20 +135,6 @@ const Styles = StyleSheet.create({
         display: 'flex',
         flexWrap: 'wrap'
     },
-    input: {
-        height: '35px',
-        borderColor: "gray",
-        borderWidth: '1px',
-        fontSize: '20px',
-        width: '100px',
-        display: "flex",
-        textAlign: "center",
-      },
-      label: {
-        margin: "auto",
-        paddingRight: '10px',
-        color: "Yellow",
-      },
       outer: {
         display: "flex",
         justifyContent: "center",
