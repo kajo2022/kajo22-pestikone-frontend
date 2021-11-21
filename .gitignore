@@ -10,7 +10,7 @@
 
 # production
 /build
-.code-workspace
+*.code-workspace
 
 # misc
 .DS_Store
@@ -22,3 +22,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# useless things
+Tescontent.jsx
+
