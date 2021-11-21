@@ -1,12 +1,11 @@
-import i18n from './services/i18n'
 
 
 const Tags1 = [
-  { "id": 1, "desc": i18n.t("Näe leirialuetta"), "type": 1 },
-  { "id": 2, "desc": i18n.t("Siisti sisätyö"), "type": 1 },
-  { "id": 3, "desc": i18n.t("Yhdessä paikassa"), "type": 1 },
-  { "id": 4, "desc": i18n.t("Leirin ulkopuolella"), "type": 1 },
-  { "id": 5, "desc": i18n.t("Varmasti ulkona"), "type": 1 }
+  { "id": 1, "desc": "Näe leirialuetta", "type": 1 },
+  { "id": 2, "desc": "Siisti sisätyö", "type": 1 },
+  { "id": 3, "desc": "Yhdessä paikassa", "type": 1 },
+  { "id": 4, "desc": "Leirin ulkopuolella", "type": 1 },
+  { "id": 5, "desc": "Varmasti ulkona", "type": 1 }
 ]
 
 export default Tags1; 

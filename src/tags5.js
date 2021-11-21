@@ -1,4 +1,3 @@
-import i18n from './services/i18n'
 
 const Tags5 = [{ "id": 42, "desc": i18n.t("EA1"), "type": 5 },
     { "id": 43, "desc": i18n.t("EA2"), "type": 5 },

@@ -199,7 +199,7 @@ export default function Frame() {
       <div className={css(Styles.container)}>
 
       <div className={css(Styles.frame)}>
-      <h1 className={css(Styles.textCent)}>{t("Tervetuloa Pestikoneeseen!!!")}</h1>
+      <h1 className={css(Styles.textCent)}>{t("Tervetuloa Kajon pestikoneeseen!")}</h1>
         <div className={css(Styles.row, Styles.outer) }>
       <button className={css(Styles.userTalker, Styles.talker)} onClick={() => {
           i18n.changeLanguage('fi');
