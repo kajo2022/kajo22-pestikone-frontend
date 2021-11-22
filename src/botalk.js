@@ -1,5 +1,6 @@
 
-export default [{
+
+const BotDial = [{
     "id": 1,
     "desc": "Tämä on Kajon pestikone. Pestikoneessa voit vaikuttaa siihen, millaisessa pestissä olet Kajo-leirillä. Vastaa kaikkiin kysymyksiin ja noudata annettuja ohjeita niin pyrimme antamaan sinulle mieluisan pestin.",
     "type": "intro"
@@ -36,3 +37,5 @@ export default [{
 }
 
 ]
+
+export default BotDial; 
