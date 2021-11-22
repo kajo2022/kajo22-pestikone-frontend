@@ -173,23 +173,6 @@ export default function Frame() {
     } catch (error) {
       console.log(error); 
     }
-    
-
-    var target = 'http://localhost:5000/reception'
-      fetch(target, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
-      })
-      .then(res => res.json())
-      .then(data => {
-
-        console.log('Success:', data);
-      })
-      .catch ((error) => {
-      console.log(error)
-      })
 */
   }
   
