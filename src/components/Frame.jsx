@@ -133,19 +133,18 @@ export default function Frame() {
       <>
         <BotTalk id={6} onko={ehto.patev}/> 
         <UserTalker lista={lista5.default} func={lisaa} onko={ehto.patev} valinta={valinta}/>
-        <ExitComp id={7} sender={checkit} clear={clear} onko={ehto.patev}/>
+        <ExitComp id={7} sender={sendit} clear={clear} onko={ehto.patev}/>
       </>
     );
   };
-
+/*
   const checkit = () => {
     var r = window.confirm("Olethan nyt varma"); 
     if(r===true) {
       sendit(); 
     }
-
   }
-
+*/
   const sendit = async () => {
     var tags = valinta.map((item) => item.id); 
     //console.log(tags);  
@@ -161,15 +160,16 @@ export default function Frame() {
         body: JSON.stringify(data)
       })
       const resData = await response.json();
-      console.log(resData); 
+      //console.log(resData); 
       let x = parseInt(resData.resp); 
       if (x !== 0) {
         window.alert('Kajo2022 kiittäää. Valintasi on tallennettu. Voit sulkea pestikoneen.');
       } else {
-        window.alert('Jokin meni vikaan. Kokeile myöhemmin uudestaan. Jos ongelma jatkuu, laita viestiä osoitteeseen x')
+        window.alert('Jokin meni vikaan. Kokeile myöhemmin uudestaan.')
       }
     } catch (error) {
-      console.log(error); 
+      console.log(error);
+      window.alert('Jokin meni vikaan. Kokeile myöhemmin uudestaan.')
     }
   }
   
