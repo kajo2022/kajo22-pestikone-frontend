@@ -161,13 +161,13 @@ export default function Frame() {
         body: JSON.stringify(data)
       })
       const resData = await response.json();
+      console.log(resData); 
       let x = parseInt(resData.resp); 
       if (x !== 0) {
         window.alert('Kajo2022 kiittäää. Valintasi on tallennettu. Voit sulkea pestikoneen.');
       } else {
         window.alert('Jokin meni vikaan. Kokeile myöhemmin uudestaan. Jos ongelma jatkuu, laita viestiä osoitteeseen x')
       }
-      console.log(resData.resp); 
     } catch (error) {
       console.log(error); 
     }
