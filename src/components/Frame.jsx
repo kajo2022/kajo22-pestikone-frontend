@@ -156,7 +156,7 @@ export default function Frame() {
     try {
       const response = await fetch(target, {
         method: 'POST',
-        //mode: 'cors',
+        mode: 'cors',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
       })
