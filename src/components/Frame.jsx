@@ -148,13 +148,11 @@ export default function Frame() {
 
   const sendit = async () => {
     var tags = valinta.map((item) => item.id); 
-    console.log(tags);
-    //let numeroitu = parseInt(jasen);  
+    //console.log(tags);  
     var data = {jnro: jasen, tags: tags}; 
-    console.log(JSON.stringify(data));
-/*    
-    //var target = 'http://localhost:5000/reception';
-    var target = 'http://localhost:7071/api/inserter';
+    //console.log(JSON.stringify(data));
+   
+    var target = 'https://lemon-sky-070490103.azurestaticapps.net/api/inserter'
     try {
       const response = await fetch(target, {
         method: 'POST',
@@ -167,13 +165,12 @@ export default function Frame() {
       if (x !== 0) {
         window.alert('Kajo2022 kiittäää. Valintasi on tallennettu. Voit sulkea pestikoneen.');
       } else {
-        window.alert('Jokin meni vikaan.')
+        window.alert('Jokin meni vikaan. Kokeile myöhemmin uudestaan. Jos ongelma jatkuu, laita viestiä osoitteeseen x')
       }
       //console.log(resData.resp); 
     } catch (error) {
       console.log(error); 
     }
-*/
   }
   
 
