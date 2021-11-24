@@ -150,7 +150,7 @@ export default function Frame() {
     var tags = valinta.map((item) => item.id); 
     //console.log(tags);  
     var data = {jnro: jasen, tags: tags}; 
-    //console.log(JSON.stringify(data));
+    console.log(JSON.stringify(data));
    
     var target = 'https://lemon-sky-070490103.azurestaticapps.net/api/inserter'
     try {
@@ -167,7 +167,7 @@ export default function Frame() {
       } else {
         window.alert('Jokin meni vikaan. Kokeile myöhemmin uudestaan. Jos ongelma jatkuu, laita viestiä osoitteeseen x')
       }
-      //console.log(resData.resp); 
+      console.log(resData.resp); 
     } catch (error) {
       console.log(error); 
     }
