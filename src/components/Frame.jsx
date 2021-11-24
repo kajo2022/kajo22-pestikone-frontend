@@ -152,7 +152,7 @@ export default function Frame() {
     var data = {jnro: jasen, tags: tags}; 
     console.log(JSON.stringify(data));
    
-    var target = 'https://lemon-sky-070490103.azurestaticapps.net/api/inserter'
+    var target = 'https://pestikone-back.azurewebsites.net/api/inserter?code=jR01fCOU1vMjfxeAyvyVKxj6TpmOUFbl1YgEnMnq3YVSaFkxBQ8aog=='
     try {
       const response = await fetch(target, {
         method: 'POST',
