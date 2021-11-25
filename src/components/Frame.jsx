@@ -133,23 +133,24 @@ export default function Frame() {
       <>
         <BotTalk id={6} onko={ehto.patev}/> 
         <UserTalker lista={lista5.default} func={lisaa} onko={ehto.patev} valinta={valinta}/>
-        <ExitComp id={7} sender={sendit} clear={clear} onko={ehto.patev}/>
+        <ExitComp id={7} sender={checkit} clear={clear} onko={ehto.patev}/>
       </>
     );
   };
-/*
+
   const checkit = () => {
-    var r = window.confirm("Olethan nyt varma"); 
-    if(r===true) {
-      sendit(); 
+    if (jasen !== null) {
+      sendit();
+    } else {
+      window.alert("Please ensure you accessed the site from your personal link.")
     }
   }
-*/
+
   const sendit = async () => {
     var tags = valinta.map((item) => item.id); 
     //console.log(tags);  
     var data = {jnro: jasen, tags: tags}; 
-    console.log(JSON.stringify(data));
+    //console.log(JSON.stringify(data));
    
     var target = 'https://pestikone-back.azurewebsites.net/api/inserter?code=jR01fCOU1vMjfxeAyvyVKxj6TpmOUFbl1YgEnMnq3YVSaFkxBQ8aog=='
     try {
