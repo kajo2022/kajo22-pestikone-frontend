@@ -139,41 +139,39 @@ export default function Frame() {
   };
 
   const checkit = () => {
-    var r = window.confirm("Olethan nyt varma"); 
-    if(r===true) {
-      sendit(); 
+    if (jasen !== null) {
+      sendit();
+    } else {
+      window.alert("Please ensure you accessed the site from your personal link.")
     }
-
   }
 
   const sendit = async () => {
     var tags = valinta.map((item) => item.id); 
-    console.log(tags);
-    //let numeroitu = parseInt(jasen);  
+    //console.log(tags);  
     var data = {jnro: jasen, tags: tags}; 
-    console.log(JSON.stringify(data));
-/*    
-    //var target = 'http://localhost:5000/reception';
-    var target = 'http://localhost:7071/api/inserter';
+    //console.log(JSON.stringify(data));
+   
+    var target = 'https://pestikone-back.azurewebsites.net/api/inserter?code=jR01fCOU1vMjfxeAyvyVKxj6TpmOUFbl1YgEnMnq3YVSaFkxBQ8aog=='
     try {
       const response = await fetch(target, {
         method: 'POST',
-        //mode: 'cors',
+        mode: 'cors',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
       })
       const resData = await response.json();
+      //console.log(resData); 
       let x = parseInt(resData.resp); 
       if (x !== 0) {
         window.alert('Kajo2022 kiittäää. Valintasi on tallennettu. Voit sulkea pestikoneen.');
       } else {
-        window.alert('Jokin meni vikaan.')
+        window.alert('Jokin meni vikaan. Kokeile myöhemmin uudestaan.')
       }
-      //console.log(resData.resp); 
     } catch (error) {
-      console.log(error); 
+      console.log(error);
+      window.alert('Jokin meni vikaan. Kokeile myöhemmin uudestaan.')
     }
-*/
   }
   
 
