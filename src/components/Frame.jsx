@@ -154,8 +154,7 @@ export default function Frame() {
     //console.log(tags);  
     var data = {jnro: jasen, tags: tags}; 
     //console.log(JSON.stringify(data));
-    console.log(JSON.stringify(data))
-   /*
+   
     var target = 'https://pestikone-back.azurewebsites.net/api/inserter?code=jR01fCOU1vMjfxeAyvyVKxj6TpmOUFbl1YgEnMnq3YVSaFkxBQ8aog=='
     try {
       const response = await fetch(target, {
@@ -176,7 +175,7 @@ export default function Frame() {
       console.log(error);
       window.alert('Jokin meni vikaan. Kokeile myöhemmin uudestaan.')
     }
-    */
+    
   }
   
 
