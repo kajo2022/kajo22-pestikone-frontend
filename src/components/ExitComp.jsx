@@ -41,7 +41,7 @@ const ExitComp = (props) => {
           {i18n.t("Tyhjennä")}
         </button>
         <div className={css(Styles.userTalker)}> {dialog[2].desc} </div>
-        <button className={css(Styles.userTalker, Styles.talker)} onClick={sender}>
+        <button className={css(Styles.userTalker, Styles.talker)} disabled={props.nappi} onClick={sender}>
           {i18n.t("Päätä kysely.")}
         </button>
         </div>
