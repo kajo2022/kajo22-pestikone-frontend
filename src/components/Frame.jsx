@@ -28,6 +28,7 @@ export default function Frame() {
     patev: false
   };
   const [ehto, setEhto] = useState(initState);
+  const [nappi, setNappi] = useState(false);
 
   const [jasen, setJasen] = useState("");
   const [valinta, setValinta] = useState([]);
@@ -54,6 +55,7 @@ export default function Frame() {
   const clear = () => {
     setValinta([]);
     setEhto(initState);
+    setNappi(false);
   };
 
   useEffect(() => {
@@ -133,7 +135,7 @@ export default function Frame() {
       <>
         <BotTalk id={6} onko={ehto.patev}/> 
         <UserTalker lista={lista5.default} func={lisaa} onko={ehto.patev} valinta={valinta}/>
-        <ExitComp id={7} sender={checkit} clear={clear} onko={ehto.patev}/>
+        <ExitComp id={7} sender={checkit} clear={clear} onko={ehto.patev} nappi={nappi}/>
       </>
     );
   };
@@ -141,6 +143,7 @@ export default function Frame() {
   const checkit = () => {
     if (jasen !== null) {
       sendit();
+      setNappi(true)
     } else {
       window.alert("Please ensure you accessed the site from your personal link.")
     }
@@ -172,6 +175,7 @@ export default function Frame() {
       console.log(error);
       window.alert('Jokin meni vikaan. Kokeile myöhemmin uudestaan.')
     }
+    
   }
   
 
