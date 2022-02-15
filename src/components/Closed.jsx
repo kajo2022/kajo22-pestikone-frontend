@@ -1,3 +1,5 @@
+import "./../assets/styles/Closed.css";
+
 const Closed = () => {
   return (
     <div className="closed">
