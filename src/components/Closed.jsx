@@ -15,6 +15,13 @@ const Closed = () => {
         </a>
       </h2>
       <br />
+      <h2>
+        Finnjamboree Kajos uppdragsgenerator har stängt. Du kan ansöka om den
+        uppdrag i:
+        <a href="https://kajo2022.fi/sv/pa-uppdrag-pa-kajo/">
+          https://kajo2022.fi/sv/pa-uppdrag-pa-kajo/
+        </a>
+      </h2>
     </div>
   );
 };
